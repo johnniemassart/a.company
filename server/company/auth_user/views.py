@@ -13,6 +13,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token = super().get_token(user)
 
         # Add custom claims
+        token["user_id"] = str(user.id)
         token["first_name"] = user.first_name
         token["last_name"] = user.last_name
         token["username"] = user.username

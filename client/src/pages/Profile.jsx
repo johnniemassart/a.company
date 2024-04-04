@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, selectAuth } from "../redux/authSlice";
 import { useNavigate } from "react-router-dom";
+import "../css/Profile.css";
+import UpdateUsername from "../components/UpdateUsername";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,7 @@ const Profile = () => {
         <p>email: {email}</p>
       </div>
       <button onClick={handleLogout}>log out</button>
+      <UpdateUsername />
     </div>
   );
 };

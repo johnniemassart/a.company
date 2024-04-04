@@ -31,6 +31,7 @@ const LogInForm = () => {
     if (isLoginSuccess) {
       dispatch(
         setUser({
+          user_id: jwtDecode(loginData.access).user_id,
           first_name: jwtDecode(loginData.access).first_name,
           last_name: jwtDecode(loginData.access).last_name,
           username: jwtDecode(loginData.access).username,

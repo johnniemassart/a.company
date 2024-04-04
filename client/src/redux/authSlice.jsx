@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  user_id: "",
   first_name: "",
   last_name: "",
   username: "",
@@ -17,6 +18,7 @@ export const authSlice = createSlice({
       localStorage.setItem(
         "user",
         JSON.stringify({
+          user_id: action.payload.user_id,
           first_name: action.payload.first_name,
           last_name: action.payload.last_name,
           username: action.payload.username,
@@ -25,6 +27,7 @@ export const authSlice = createSlice({
           access: action.payload.access,
         })
       );
+      state.user_id = action.payload.user_id;
       state.first_name = action.payload.first_name;
       state.last_name = action.payload.last_name;
       state.username = action.payload.username;
@@ -34,6 +37,7 @@ export const authSlice = createSlice({
     },
     logout: (state) => {
       localStorage.clear();
+      state.user_id = "";
       state.first_name = "";
       state.last_name = "";
       state.username = "";
