@@ -21,15 +21,6 @@ const UpdateUsername = () => {
     }
   };
 
-  //   useEffect(() => {
-  //     if (isUpdateSuccess) {
-  //       dispatch(setUser({ ...user, username: myUsername }));
-  //       setMyUsername("");
-  //     } else {
-  //       console.log("error");
-  //     }
-  //   }, [isUpdateSuccess]);
-
   return (
     <form onSubmit={handleSubmit}>
       <div className="update_wrapper">
@@ -40,6 +31,7 @@ const UpdateUsername = () => {
           onChange={(e) => setMyUsername(e.target.value)}
           value={myUsername}
         />
+        <button>update</button>
       </div>
     </form>
   );

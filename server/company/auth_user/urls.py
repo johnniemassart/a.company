@@ -8,6 +8,7 @@ from rest_framework_simplejwt.views import (
 
 router = DefaultRouter()
 router.register("users", UserViewSet)
+# router.register("profiles", ProfileViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
