@@ -7,6 +7,11 @@ from django.contrib.auth.admin import UserAdmin
 admin.site.unregister(Group)
 
 
+# User Profile Inline
+class UserProfileInline(admin.TabularInline):
+    model = Profile
+
+
 # Customer user model
 class UserAdminConfig(UserAdmin):
     search_fields = ("username", "first_name", "last_name", "email")
@@ -44,7 +49,7 @@ class UserAdminConfig(UserAdmin):
             },
         ),
     )
+    inlines = [UserProfileInline]
 
 
 admin.site.register(User, UserAdminConfig)
-admin.site.register(Profile)

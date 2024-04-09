@@ -5,6 +5,7 @@ export const authApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://127.0.0.1:8000/",
   }),
+  tagTypes: ["AuthUser"],
   endpoints: (builder) => ({
     loginUser: builder.mutation({
       query: (body) => {
@@ -14,15 +15,17 @@ export const authApi = createApi({
           body,
         };
       },
+      invalidatesTags: ["AuthUser"],
     }),
     updateUsername: builder.mutation({
-      query: ({ user_id, ...rest }) => {
+      query: ({ id, ...rest }) => {
         return {
-          url: `auth/users/${user_id}/`,
+          url: `auth/users/${id}/`,
           method: "put",
           body: rest,
         };
       },
+      invalidatesTags: ["AuthUser"],
     }),
   }),
 });

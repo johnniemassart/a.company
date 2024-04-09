@@ -3,21 +3,21 @@ import { useDispatch } from "react-redux";
 import { useUpdateUsernameMutation } from "../redux/authApi";
 import { selectAuth, setUser } from "../redux/authSlice";
 import { useSelector } from "react-redux";
+import { useProfileDataQuery } from "../redux/profileApi";
 
 const UpdateUsername = () => {
   const dispatch = useDispatch();
   const [myUsername, setMyUsername] = useState("");
   const user = useSelector(selectAuth);
-  //   console.log(user);
+  const { data: dataUsername } = useProfileDataQuery(user.user_id);
   const [updateUsername] = useUpdateUsernameMutation();
 
   const handleSubmit = async (e) => {
     await e.preventDefault();
     if (myUsername) {
-      //   await updateUsername(user);
-      await updateUsername({ ...user, username: myUsername });
-      await dispatch(setUser({ ...user, username: myUsername }));
-      await setMyUsername("");
+      await updateUsername({ ...dataUsername, username: myUsername });
+      dispatch(setUser({ ...user, username: myUsername }));
+      setMyUsername("");
     }
   };
 

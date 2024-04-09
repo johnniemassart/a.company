@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, selectAuth } from "../redux/authSlice";
 import { useNavigate } from "react-router-dom";
 import "../css/Profile.css";
 import UpdateUsername from "../components/UpdateUsername";
+import ProfileAbout from "../components/ProfileAbout";
 
 const Profile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { first_name, last_name, username, email } = useSelector(selectAuth);
+  const { user_id, first_name, last_name, username, email } =
+    useSelector(selectAuth);
   const handleLogout = () => {
     dispatch(logout());
     console.log("log out successful");
@@ -23,8 +25,14 @@ const Profile = () => {
         <p>username: {username}</p>
         <p>email: {email}</p>
       </div>
-      <button onClick={handleLogout}>log out</button>
+      <br />
+      <ProfileAbout />
+      <br />
       <UpdateUsername />
+      <br />
+      <br />
+      <br />
+      <button onClick={handleLogout}>log out</button>
     </div>
   );
 };
