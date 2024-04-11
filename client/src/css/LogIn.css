@@ -4,55 +4,95 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.login_form {
-  width: 500px;
-  height: 400px;
-  border: 1px solid green;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
 }
 
-.log_in {
+.signup_btn {
   position: absolute;
-  top: 10%;
+  top: 95%;
   left: 50%;
   transform: translateX(-50%);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.login_form {
+  width: 380px;
+  height: 125px;
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: end;
+  align-items: start;
+  flex-direction: column;
+  position: relative;
+}
+
+.log_in_msg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 18px;
 }
 
 .input_content_wrapper {
-  border: 1px solid salmon;
-  height: 200px;
-  width: 50%;
+  /* border: 1px solid saddlebrown; */
+  height: 50%;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "input login";
+  grid-template-columns: 2fr 1fr;
+}
+
+.input_wrapper {
+  /* border: 1px solid pink; */
+  grid-area: input;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: end;
+  align-items: start;
   flex-direction: column;
 }
 
 input {
+  height: 30px;
   width: 100%;
-  border: 0.25px solid gray;
+  margin-top: 5px;
+  border: none;
+  border-bottom: 0.25px solid grey;
 }
 
 input:focus {
   outline: none;
 }
 
-.login_btn {
-  border: 1px solid purple;
-  font-size: 16px;
+.log_in_btn_wrapper {
+  /* border: 1px solid purple; */
+  grid-area: login;
+  display: flex;
+  justify-content: end;
+  align-items: end;
 }
 
-.signup_btn {
+.login_btn {
+  border: none;
+  font-size: 18px;
+  position: relative;
+  cursor: pointer;
+}
+
+.login_btn::before {
+  content: "";
   position: absolute;
-  top: 85%;
-  left: 50%;
-  transform: translateX(-50%);
-  text-decoration: none;
-  font-size: 16px;
-  border: 1px solid slateblue;
+  width: 100%;
+  height: 40%;
+  background-color: rgba(255, 255, 0, 0.5);
+  bottom: 20%;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.login_btn:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
 }

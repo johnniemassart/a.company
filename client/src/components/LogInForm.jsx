@@ -48,28 +48,32 @@ const LogInForm = () => {
   }, [isLoginSuccess]);
   return (
     <div className="login_wrapper" onSubmit={handleSubmit}>
+      <Link to="/signup" className="signup_btn">
+        sign up
+      </Link>
       <form className="login_form">
-        <h3 className="log_in">welcome to log in page</h3>
+        <p className="log_in_msg">welcome to log in page</p>
         <div className="input_content_wrapper">
-          <label>Enter Username:</label>
-          <input
-            type="text"
-            name="username"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-          />
-          <label>Enter Password:</label>
-          <input
-            type="password"
-            name="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
-          <button className="login_btn">Log In</button>
+          <div className="input_wrapper">
+            <input
+              type="text"
+              placeholder="username"
+              name="username"
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+            />
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
+          </div>
+          <div className="log_in_btn_wrapper">
+            <button className="login_btn">enter</button>
+          </div>
         </div>
-        <Link to="/signup" className="signup_btn">
-          Sign Up
-        </Link>
       </form>
     </div>
   );
