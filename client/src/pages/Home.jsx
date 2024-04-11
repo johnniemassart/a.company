@@ -4,7 +4,7 @@ import LogInOrSignUp from "../components/LogInOrSignUp";
 
 const Home = () => {
   return (
-    <div className="wrapper">
+    <div className="home_wrapper">
       <LogInOrSignUp />
     </div>
   );
