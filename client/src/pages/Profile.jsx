@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, selectAuth } from "../redux/authSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../css/Profile.css";
 import UpdateUsername from "../components/UpdateUsername";
 import ProfileAbout from "../components/ProfileAbout";
@@ -24,6 +24,7 @@ const Profile = () => {
         <p>last name: {last_name}</p>
         <p>username: {username}</p>
         <p>email: {email}</p>
+        {/* <Link to={} /> */}
       </div>
       <br />
       <ProfileAbout />

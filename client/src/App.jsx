@@ -4,6 +4,7 @@ import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import Profile from "./pages/Profile";
+import Test from "./pages/Test";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/profile" element={<Profile />} />
+            <Route path="/test" element={<Test />} />
           </Route>
         </Routes>
       </Router>

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Outlet, Navigate } from "react-router-dom";
 import { setUser } from "../redux/authSlice";
 import { useDispatch } from "react-redux";
+import Profile from "../pages/Profile";
 
 const PrivateRoutes = () => {
   const dispatch = useDispatch();

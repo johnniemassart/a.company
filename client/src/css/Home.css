@@ -4,41 +4,109 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.home_msg {
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
 }
 
 .li_su_wrapper {
-  border: 1px solid purple;
-  width: 600px;
-  height: 350px;
-  position: relative;
+  /* border: 1px solid purple; */
+  overflow: visible;
+  width: 380px;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.li_su_content_wrapper {
+  /* border: 1px solid orange; */
+  overflow: visible;
+  width: 100%;
+  /* height: 60%; */
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
 .welcome {
+  font-size: 18px;
+}
+
+.company_name {
+  font-style: italic;
+  position: relative;
+  overflow: visible;
+  display: block;
+}
+
+.company_name:hover > #company_svg {
+  animation: 400ms fillSvg linear;
+  display: block;
+}
+
+#company_svg {
   position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 120px;
+  /* height: 110px; */
+  top: -115%;
+  left: -7%;
+  background-color: transparent;
+  rotate: 18deg;
+  stroke-dasharray: 343;
+  display: none;
+}
+
+@keyframes fillSvg {
+  0% {
+    stroke-dashoffset: 343;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.home_day {
+  align-self: end;
 }
 
 .link_wrapper {
-  border: 1px solid green;
-  height: 110px;
-  width: 50%;
+  /* border: 1px solid plum; */
+  width: 100%;
+  /* height: 40%; */
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-between;
 }
 
-.link_btn {
+.link_wrapper > a {
+  /* margin: 10px; */
   text-decoration: none;
-  height: 70px;
-  width: 70px;
-  border-radius: 50%;
-  background-color: gray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 18px;
+  position: relative;
+}
+
+.link_wrapper > a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  background-color: rgba(255, 255, 0, 0.5);
+  bottom: 20%;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.link_wrapper > a:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
 }
