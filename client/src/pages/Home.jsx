@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/Home.css";
-import LogInOrSignUp from "../components/LogInOrSignUp";
+import LogInOrSignUp from "../components/Home/LogInOrSignUp";
 
 const Home = () => {
   return (

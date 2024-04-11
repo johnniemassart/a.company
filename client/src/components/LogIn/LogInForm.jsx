@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useLoginUserMutation } from "../redux/authApi";
+import { useLoginUserMutation } from "../../redux/authApi";
 import { useNavigate, Link } from "react-router-dom";
-import { setUser } from "../redux/authSlice";
+import { setUser } from "../../redux/authSlice";
 import { jwtDecode } from "jwt-decode";
 
 const LogInForm = () => {

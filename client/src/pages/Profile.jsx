@@ -3,8 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout, selectAuth } from "../redux/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/Profile.css";
-import UpdateUsername from "../components/UpdateUsername";
-import ProfileAbout from "../components/ProfileAbout";
+import UpdateUsername from "../components/Profile/UpdateUsername";
+import ProfileAbout from "../components/Profile/ProfileAbout";
+import ProfNav from "../components/Profile/ProfNav";
+import ProfContent from "../components/Profile/ProfContent";
+import ProfWelcome from "../components/Profile/ProfWelcome";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -18,13 +21,12 @@ const Profile = () => {
   };
   return (
     <div className="profile_wrapper">
-      <div>
+      {/* <div>
         Profile:
         <p>first name: {first_name}</p>
         <p>last name: {last_name}</p>
         <p>username: {username}</p>
         <p>email: {email}</p>
-        {/* <Link to={} /> */}
       </div>
       <br />
       <ProfileAbout />
@@ -33,7 +35,10 @@ const Profile = () => {
       <br />
       <br />
       <br />
-      <button onClick={handleLogout}>log out</button>
+      <button onClick={handleLogout}>log out</button> */}
+      <ProfNav />
+      <ProfWelcome />
+      <ProfContent />
     </div>
   );
 };

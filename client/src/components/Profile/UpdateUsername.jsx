@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useUpdateUsernameMutation } from "../redux/authApi";
-import { selectAuth, setUser } from "../redux/authSlice";
+import { useUpdateUsernameMutation } from "../../redux/authApi";
+import { selectAuth, setUser } from "../../redux/authSlice";
 import { useSelector } from "react-redux";
-import { useProfileDataQuery } from "../redux/profileApi";
+import { useProfileDataQuery } from "../../redux/profileApi";
 
 const UpdateUsername = () => {
   const dispatch = useDispatch();

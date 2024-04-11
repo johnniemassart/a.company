@@ -1,5 +1,52 @@
 .profile_wrapper {
-  border: 1px solid orange;
-  height: auto;
-  /* overflow-y: auto; */
+  /* border: 1px solid orange; */
+  height: 100svh;
+  display: grid;
+  grid-template-areas: "nav" "welcome" "content";
+  grid-template-rows: 34px 130px 1fr;
+}
+
+.prof_nav_wrapper {
+  grid-area: nav;
+  /* border: 1px solid green; */
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.prof_nav_link {
+  margin-right: 10px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.prof_nav_link:hover {
+  font-style: italic;
+}
+
+.a_company {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.prof_welcome_wrapper {
+  grid-area: welcome;
+  /* border: 1px solid orange; */
+  background-color: rgb(100, 100, 100);
+  display: flex;
+  align-items: end;
+}
+
+.prof_welcome_wrapper > p {
+  background-color: transparent;
+  margin-left: 10px;
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.prof_cont_wrapper {
+  grid-area: content;
+  border-top: 1px solid black;
+  background-color: rgb(220, 220, 220);
+  color: black;
 }

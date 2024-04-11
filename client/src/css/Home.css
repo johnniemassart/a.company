@@ -1,12 +1,13 @@
 .home_wrapper {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+  height: 100svh;
+  /* border: 1px solid green; */
+  /* width: 100vw; */
+  /* overflow: hidden; */
 }
 
 .li_su_positioning {
   height: 100%;
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,7 +101,7 @@
   /* margin: 10px; */
   text-decoration: none;
   font-size: 18px;
-  cursor: pointer;
+  /* cursor: pointer; */
   position: relative;
 }
 

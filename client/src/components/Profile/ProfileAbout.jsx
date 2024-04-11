@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { selectAuth } from "../redux/authSlice";
+import { selectAuth } from "../../redux/authSlice";
 import {
   useProfileDataQuery,
   useAddProfileMutation,
-} from "../redux/profileApi";
+} from "../../redux/profileApi";
 
 const ProfileAbout = () => {
   const [about, setAbout] = useState("");
