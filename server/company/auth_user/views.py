@@ -1,6 +1,6 @@
 from .models import *
 from .serializers import *
-from rest_framework import viewsets
+from rest_framework import viewsets, generics, filters
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
@@ -32,6 +32,14 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
-# class ProfileViewSet(viewsets.ModelViewSet):
-#     queryset = Profile.objects.all()
-#     serializer_class = ProfileSerializer
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+
+class PostList(generics.ListAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        user = self.kwargs["user"]
+        return Post.objects.filter(user=user)

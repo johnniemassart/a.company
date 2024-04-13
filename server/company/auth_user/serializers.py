@@ -5,7 +5,7 @@ from .models import *
 class ProfileSerializer(ModelSerializer):
     class Meta:
         model = Profile
-        fields = ["id", "about", "profile_pic"]
+        fields = ["id", "follows", "about", "profile_pic"]
 
 
 class UserSerializer(ModelSerializer):
@@ -32,3 +32,9 @@ class UserSerializer(ModelSerializer):
             # this will not throw an exception,
             # as `profile` is not part of `validated_data`
         return super(UserSerializer, self).update(instance, validated_data)
+
+
+class PostSerializer(ModelSerializer):
+    class Meta:
+        model = Post
+        fields = "__all__"

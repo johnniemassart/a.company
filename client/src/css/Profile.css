@@ -29,6 +29,15 @@
   margin-left: 10px;
 }
 
+.nav_btn {
+  border: none;
+}
+
+.nav_btn:hover {
+  font-style: italic;
+  cursor: pointer;
+}
+
 .prof_welcome_wrapper {
   grid-area: welcome;
   /* border: 1px solid orange; */
@@ -49,4 +58,15 @@
   border-top: 1px solid black;
   background-color: rgb(220, 220, 220);
   color: black;
+}
+
+.user_post_wrapper {
+  background-color: transparent;
+  border-bottom: 1px solid black;
+}
+
+.user_posts {
+  background-color: transparent;
+  color: black;
+  margin-left: 10px;
 }

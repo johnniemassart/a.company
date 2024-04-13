@@ -8,7 +8,7 @@ admin.site.unregister(Group)
 
 
 # User Profile Inline
-class UserProfileInline(admin.TabularInline):
+class UserProfileInline(admin.StackedInline):
     model = Profile
 
 
@@ -53,3 +53,5 @@ class UserAdminConfig(UserAdmin):
 
 
 admin.site.register(User, UserAdminConfig)
+
+admin.site.register(Post)
