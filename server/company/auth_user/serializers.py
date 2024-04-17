@@ -1,11 +1,12 @@
 from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 from .models import *
 
 
 class ProfileSerializer(ModelSerializer):
     class Meta:
         model = Profile
-        fields = ["id", "follows", "about", "profile_pic"]
+        fields = ["follows", "about", "profile_pic"]
 
 
 class UserSerializer(ModelSerializer):
@@ -38,3 +39,35 @@ class PostSerializer(ModelSerializer):
     class Meta:
         model = Post
         fields = "__all__"
+
+
+class ProfileFollowsSerializer(ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ["user", "follows", "posts"]
+        # fields = ["user", "follows"]
+
+
+class ProfileFollowedBySerializer(ModelSerializer):
+    followed_by = serializers.StringRelatedField(many=True)
+
+    class Meta:
+        model = Profile
+        fields = ["user", "followed_by"]
+
+
+class ProfilePostsSerializer(ModelSerializer):
+    posts = PostSerializer(many=True)
+
+    class Meta:
+        model = Profile
+        fields = ["user", "posts"]
+
+
+# ----
+class ProfileFollowsPostSerializer(ModelSerializer):
+    posts = PostSerializer(many=True)
+
+    class Meta:
+        model = Profile
+        fields = ["user", "follows", "posts"]

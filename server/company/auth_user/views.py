@@ -43,3 +43,31 @@ class PostList(generics.ListAPIView):
     def get_queryset(self):
         user = self.kwargs["user"]
         return Post.objects.filter(user=user)
+
+
+class ProfileFollowsList(generics.ListAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileFollowsSerializer
+
+
+class ProfileFollowedByList(generics.ListAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileFollowedBySerializer
+
+
+class ProfilePostsList(generics.ListAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfilePostsSerializer
+
+    # def get_queryset(self):
+    #     following = Profile.objects.filter(follows=self.request.user)
+    #     return Post.objects.filter(user__follows=following)
+
+
+# ------------ MY space to think
+class FollowingPosts(generics.ListAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        user = self.kwargs["user"]
+        return Post.objects.filter(user__followed_by=user)
