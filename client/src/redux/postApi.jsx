@@ -11,7 +11,11 @@ export const postApi = createApi({
       query: (user_id) => `auth/users/posts/${user_id}`,
       providesTags: ["Post"],
     }),
+    followingPostData: builder.query({
+      query: (user_id) => `auth/following_posts/${user_id}/`,
+      providesTags: ["Post"],
+    }),
   }),
 });
 
-export const { usePostDataQuery } = postApi;
+export const { usePostDataQuery, useFollowingPostDataQuery } = postApi;
