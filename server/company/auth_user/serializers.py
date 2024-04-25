@@ -35,6 +35,12 @@ class UserSerializer(ModelSerializer):
         return super(UserSerializer, self).update(instance, validated_data)
 
 
+class UserUsernameSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["id", "username"]
+
+
 class PostSerializer(ModelSerializer):
     class Meta:
         model = Post

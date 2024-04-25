@@ -1,0 +1,14 @@
+.account_wrapper {
+  height: 100svh;
+  display: grid;
+  grid-template-areas: "nav" "welcome" "content";
+  grid-template-rows: 34px 130px 1fr;
+}
+
+.account_welcome_wrapper {
+  grid-area: welcome;
+  border: 1px solid orange;
+  background-color: rgb(100, 100, 100);
+  display: flex;
+  align-items: end;
+}

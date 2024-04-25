@@ -1,21 +1,18 @@
-.login_page_wrapper {
+.signup_page_wrapper {
   height: 100svh;
-  /* width: 100vw; */
   overflow: hidden;
-  /* background-color: rgb(16, 16, 16); */
 }
 
-.login_wrapper {
+.signup_wrapper {
   height: 100%;
-  /* width: 100%; */
-  overflow: hidden;
+  border: 1px solid orange;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
 
-.signup_btn {
+.to_login_btn {
   position: absolute;
   top: 95%;
   left: 50%;
@@ -24,43 +21,37 @@
   text-decoration: none;
 }
 
-.login_form {
-  width: 380px;
-  height: 125px;
-  border: 1px solid green;
+.signup_form {
+  /* border: 1px solid green; */
+  width: 420px;
+  height: 325px;
   display: flex;
-  justify-content: end;
-  align-items: start;
   flex-direction: column;
+  justify-content: end;
   position: relative;
 }
 
-.log_in_msg {
+.signup_welcome {
   position: absolute;
   top: 0;
   left: 0;
   font-size: 18px;
 }
 
-.input_content_wrapper {
-  border: 1px solid saddlebrown;
-  height: 50%;
-  width: 100%;
-  display: grid;
-  grid-template-areas: "input login";
-  grid-template-columns: 2fr 1fr;
-}
-
-.input_wrapper {
-  border: 1px solid pink;
-  grid-area: input;
+.signup_input_btn_wrapper {
+  height: 85%;
+  /* border: 1px solid purple; */
   display: flex;
-  justify-content: end;
-  align-items: start;
-  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
 }
 
-input {
+.signup_input_wrapper {
+  /* border: 1px solid orange; */
+  width: 70%;
+}
+
+.signup_input_wrapper > input {
   height: 30px;
   width: 100%;
   margin-top: 5px;
@@ -70,27 +61,18 @@ input {
   background-color: transparent;
 }
 
-input:focus {
-  outline: none;
+.signup_submit_btn_wrapper {
 }
 
-.log_in_btn_wrapper {
-  /* border: 1px solid purple; */
-  grid-area: login;
-  display: flex;
-  justify-content: end;
-  align-items: end;
-}
-
-.login_btn {
+.signup_submit_btn_wrapper > .signup_submit_btn {
   border: none;
   font-size: 18px;
-  position: relative;
   cursor: pointer;
   background-color: transparent;
+  position: relative;
 }
 
-.login_btn::before {
+.signup_submit_btn::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -103,7 +85,7 @@ input:focus {
   transition: transform 0.3s ease-in-out;
 }
 
-.login_btn:hover::before {
+.signup_submit_btn:hover::before {
   transform-origin: left;
   transform: scaleX(1);
 }

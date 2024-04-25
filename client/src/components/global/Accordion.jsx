@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
-const Accordion = ({ id, title, content, created }) => {
+const Accordion = ({ id, title, content, created, user }) => {
   const [clicked, setClicked] = useState(false);
   const year_created_sliced = created.slice(0, 4);
   return (
     <div className="accordion" key={id} onClick={() => setClicked(!clicked)}>
       <div className="accordion_header">
         <p className="accordion_title">{title}</p>
+        <p className="accordion_username">{user}</p>
         <p className="accordion_year">{year_created_sliced}</p>
       </div>
       <div className={`accordion_body ${clicked && "show"}`}>

@@ -52,6 +52,8 @@
   position: relative;
   overflow: visible;
   display: block;
+  /* border: 1px solid orange; */
+  width: max-content;
 }
 
 .company_name:hover {

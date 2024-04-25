@@ -61,8 +61,12 @@
   color: black;
 }
 
+.prof_content_header {
+  border-bottom: 1px solid black;
+}
+
 .accordion {
-  border: 1px solid green;
+  border-bottom: 1px solid black;
 }
 
 .accordion_header {
@@ -85,6 +89,10 @@
   color: black;
 }
 
+.accordion_username {
+  color: black;
+}
+
 .accordion_year {
   color: black;
 }
@@ -103,7 +111,7 @@
 
 .accordion_content_wrapper {
   min-height: 75px;
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
   display: flex;
   align-items: center;
 }

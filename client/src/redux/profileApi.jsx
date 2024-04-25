@@ -11,6 +11,10 @@ export const profileApi = createApi({
       query: (user_id) => `auth/users/${user_id}`,
       providesTags: ["Profile"],
     }),
+    accessUsername: builder.query({
+      query: (user) => `auth/user_username/${user}/`,
+      providesTags: ["Profile"],
+    }),
     addProfile: builder.mutation({
       query: ({ user_id, ...rest }) => {
         return {
@@ -24,4 +28,8 @@ export const profileApi = createApi({
   }),
 });
 
-export const { useProfileDataQuery, useAddProfileMutation } = profileApi;
+export const {
+  useProfileDataQuery,
+  useAccessUsernameQuery,
+  useAddProfileMutation,
+} = profileApi;

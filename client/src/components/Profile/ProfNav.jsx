@@ -13,13 +13,13 @@ const ProfNav = () => {
   };
   return (
     <div className="prof_nav_wrapper">
-      <Link to="#" className="prof_nav_link a_company">
+      <Link to="/profile" className="prof_nav_link a_company">
         a.company
       </Link>
       <Link to="/profile" className="prof_nav_link">
         feed
       </Link>
-      <Link to="#" className="prof_nav_link">
+      <Link to="/account" className="prof_nav_link">
         account
       </Link>
       <button onClick={handleLogout} className="prof_nav_link nav_btn">

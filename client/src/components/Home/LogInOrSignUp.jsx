@@ -44,7 +44,7 @@ const LogInOrSignUp = () => {
             (day) =>
               currentDate.getDay() === day.dateVal && (
                 <p key={day.dateVal} className="welcome home_day">
-                  on a {day.dateDay} in new york.
+                  on a {day.dateDay} in milwaukee.
                 </p>
               )
           )}
