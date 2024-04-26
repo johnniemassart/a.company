@@ -1,14 +1,11 @@
 .login_page_wrapper {
   height: 100svh;
-  /* width: 100vw; */
   overflow: hidden;
-  /* background-color: rgb(16, 16, 16); */
 }
 
 .login_wrapper {
   height: 100%;
-  /* width: 100%; */
-  overflow: hidden;
+  /* border: 1px solid green; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,41 +23,33 @@
 
 .login_form {
   width: 380px;
-  height: 125px;
-  border: 1px solid green;
+  height: 175px;
+  /* border: 1px solid green; */
   display: flex;
-  justify-content: end;
-  align-items: start;
   flex-direction: column;
+  justify-content: space-between;
   position: relative;
 }
 
 .log_in_msg {
-  position: absolute;
-  top: 0;
-  left: 0;
   font-size: 18px;
 }
 
 .input_content_wrapper {
-  border: 1px solid saddlebrown;
+  /* border: 1px solid salmon; */
   height: 50%;
-  width: 100%;
-  display: grid;
-  grid-template-areas: "input login";
-  grid-template-columns: 2fr 1fr;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
 }
 
 .input_wrapper {
-  border: 1px solid pink;
-  grid-area: input;
   display: flex;
-  justify-content: end;
-  align-items: start;
   flex-direction: column;
+  width: 70%;
 }
 
-input {
+.input_wrapper > input {
   height: 30px;
   width: 100%;
   margin-top: 5px;
@@ -72,14 +61,6 @@ input {
 
 input:focus {
   outline: none;
-}
-
-.log_in_btn_wrapper {
-  /* border: 1px solid purple; */
-  grid-area: login;
-  display: flex;
-  justify-content: end;
-  align-items: end;
 }
 
 .login_btn {
