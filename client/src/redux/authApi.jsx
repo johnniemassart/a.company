@@ -7,6 +7,10 @@ export const authApi = createApi({
   }),
   tagTypes: ["AuthUser"],
   endpoints: (builder) => ({
+    getUser: builder.query({
+      query: (user_id) => `auth/users/${user_id}`,
+      providesTags: ["AuthUser"],
+    }),
     loginUser: builder.mutation({
       query: (body) => {
         return {
@@ -30,4 +34,8 @@ export const authApi = createApi({
   }),
 });
 
-export const { useLoginUserMutation, useUpdateUsernameMutation } = authApi;
+export const {
+  useGetUserQuery,
+  useLoginUserMutation,
+  useUpdateUsernameMutation,
+} = authApi;

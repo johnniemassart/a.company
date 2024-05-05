@@ -3,6 +3,7 @@ from .serializers import *
 from rest_framework import viewsets, generics, filters
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 
@@ -32,9 +33,13 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
-class UserUsernameViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserUsernameSerializer
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileAllSerializer
+    parser_classes = [MultiPartParser, FormParser]
+
+    def perform_create(self, serializer):
+        return serializer.save(user=self.request.user)
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -64,12 +69,7 @@ class ProfilePostsList(generics.ListAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfilePostsSerializer
 
-    # def get_queryset(self):
-    #     following = Profile.objects.filter(follows=self.request.user)
-    #     return Post.objects.filter(user__follows=following)
 
-
-# ------------ MY space to think
 class FollowingPosts(generics.ListAPIView):
     serializer_class = PostSerializer
 

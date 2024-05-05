@@ -67,6 +67,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 # ---------------------------------------------------------------------------------------------
+def upload_to(instance, filename):
+    return "images/{filename}".format(filename=filename)
 
 
 class Profile(models.Model):
@@ -75,7 +77,7 @@ class Profile(models.Model):
         "self", related_name="followed_by", symmetrical=False, blank=True
     )
     about = models.TextField(null=True, blank=True)
-    profile_pic = models.ImageField(null=True, blank=True, upload_to="images/")
+    profile_pic = models.ImageField(null=True, blank=True, upload_to=upload_to)
 
     def __str__(self):
         return f"{self.user}"

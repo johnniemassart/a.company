@@ -10,7 +10,7 @@ class ProfileSerializer(ModelSerializer):
 
 
 class UserSerializer(ModelSerializer):
-    profile = ProfileSerializer()
+    profile = ProfileSerializer(read_only=True)
 
     class Meta:
         model = User
@@ -35,10 +35,10 @@ class UserSerializer(ModelSerializer):
         return super(UserSerializer, self).update(instance, validated_data)
 
 
-class UserUsernameSerializer(ModelSerializer):
+class ProfileAllSerializer(ModelSerializer):
     class Meta:
-        model = User
-        fields = ["id", "username"]
+        model = Profile
+        fields = ["user", "about", "profile_pic", "follows"]
 
 
 class PostSerializer(ModelSerializer):
@@ -51,7 +51,6 @@ class ProfileFollowsSerializer(ModelSerializer):
     class Meta:
         model = Profile
         fields = ["user", "follows", "posts"]
-        # fields = ["user", "follows"]
 
 
 class ProfileFollowedBySerializer(ModelSerializer):
@@ -70,7 +69,6 @@ class ProfilePostsSerializer(ModelSerializer):
         fields = ["user", "posts"]
 
 
-# ----
 class ProfileFollowsPostSerializer(ModelSerializer):
     posts = PostSerializer(many=True)
 

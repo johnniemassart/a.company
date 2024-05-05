@@ -12,3 +12,72 @@
   display: flex;
   align-items: end;
 }
+
+.account_content_wrapper {
+  grid-area: content;
+  border: 1px solid green;
+  background-color: rgb(220, 220, 220);
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.update_account_wrapper {
+  border: 1px solid purple;
+  margin-top: 40px;
+  height: 500px;
+  width: 350px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.prof_pic_wrapper {
+  /* border: 1px solid green; */
+}
+
+.profile_pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: inline-block;
+  object-fit: cover;
+}
+
+#prof_pic_file {
+  /* display: none; */
+}
+
+.about_form {
+  width: 100%;
+}
+
+.about_wrapper {
+  border: 1px solid orange;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.prof_about_label {
+  color: black;
+  font-size: 18px;
+}
+
+.prof_about_text {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  font-size: 18px;
+  color: black;
+  width: 100%;
+  /* height: max-content; */
+  /* word-wrap: break-word; */
+}
+
+.prof_about_text:focus {
+  outline: none;
+}
