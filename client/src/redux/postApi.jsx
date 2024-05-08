@@ -12,7 +12,7 @@ export const postApi = createApi({
       providesTags: ["Post"],
     }),
     followingPostData: builder.query({
-      query: (user_id) => `auth/following_posts/${user_id}/`,
+      query: (user_id) => `auth/following_posts/${user_id}`,
       providesTags: ["Post"],
     }),
   }),

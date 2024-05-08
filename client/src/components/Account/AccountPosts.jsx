@@ -1,23 +1,19 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlice";
-import {
-  usePostDataQuery,
-  useFollowingPostDataQuery,
-} from "../../redux/postApi";
-import { useAccessUsernameQuery } from "../../redux/profileApi";
+import { usePostDataQuery } from "../../redux/postApi";
 import Accordion from "../global/Accordion";
 
-const ProfContent = () => {
+const AccountPosts = () => {
   const { user_id } = useSelector(selectAuth);
-  const { data: followingPostData, isSuccess: userFollowingPostSuccess } =
-    useFollowingPostDataQuery(user_id);
-  const displayUser = true;
+  const { data: userPosts, isSuccess: userPostsSuccess } =
+    usePostDataQuery(user_id);
+  const displayUser = false;
   return (
-    <div className="prof_cont_wrapper">
-      <h1 className="prof_content_header">my content</h1>
-      {userFollowingPostSuccess &&
-        followingPostData?.map((post) => {
+    <div>
+      <h1 className="account_posts_header">my posts</h1>
+      {userPostsSuccess &&
+        userPosts?.map((post) => {
           return (
             <Accordion
               key={post.id}
@@ -33,4 +29,4 @@ const ProfContent = () => {
   );
 };
 
-export default ProfContent;
+export default AccountPosts;

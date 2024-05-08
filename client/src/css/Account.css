@@ -15,16 +15,21 @@
 
 .account_content_wrapper {
   grid-area: content;
-  /* border: 1px solid green; */
+  border: 1px solid green;
   background-color: rgb(220, 220, 220);
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-areas: "account_posts account_update";
+  grid-template-columns: 60% 40%;
+}
+
+.account_posts_wrapper {
+  grid-area: account_posts;
+  border: 1px solid red;
 }
 
 .update_account_wrapper {
   border: 1px solid black;
-  /* margin-top: 40px; */
-  width: 350px;
+  grid-area: account_update;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -64,10 +69,6 @@
 
 .profile_pic:hover {
   cursor: pointer;
-}
-
-#prof_pic_file {
-  /* display: none; */
 }
 
 .update_username_form {
@@ -140,4 +141,14 @@
 
 .update_about_btn:hover {
   cursor: pointer;
+}
+
+.account_navbar_wrapper {
+  border: 1px solid green;
+  color: black;
+}
+
+.account_posts_header {
+  margin-left: 10px;
+  color: black;
 }

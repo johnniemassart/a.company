@@ -63,6 +63,8 @@
 
 .prof_content_header {
   border-bottom: 1px solid black;
+  color: black;
+  padding-left: 10px;
 }
 
 .accordion {
@@ -81,7 +83,7 @@
 }
 
 .accordion_header > p {
-  border: 1px solid brown;
+  /* border: 1px solid brown; */
   margin: 0px 10px;
 }
 
@@ -118,4 +120,6 @@
 
 .accordion_content {
   color: black;
+  /* border: 1px solid orchid; */
+  margin-left: 10px;
 }
