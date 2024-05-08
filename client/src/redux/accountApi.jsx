@@ -11,6 +11,10 @@ export const accountApi = createApi({
       query: (user_id) => `auth/profiles/${user_id}`,
       providesTags: ["AccountApi"],
     }),
+    getFollowing: builder.query({
+      query: (user_id) => `auth/following/${user_id}`,
+      providesTags: ["AccountApi"],
+    }),
     updateAbout: builder.mutation({
       query: ({ user, ...rest }) => {
         return {
@@ -44,6 +48,7 @@ export const accountApi = createApi({
 
 export const {
   useGetProfileQuery,
+  useGetFollowingQuery,
   useUpdateAboutMutation,
   useUpdateProfilePicMutation,
 } = accountApi;
