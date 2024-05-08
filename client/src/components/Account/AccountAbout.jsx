@@ -20,18 +20,16 @@ const AccountAbout = () => {
     setAbout("");
   };
   return (
-    <form className="about_form" onSubmit={submitAbout}>
-      <div className="about_wrapper">
-        <label className="prof_about_label">about:</label>
-        <input
-          className="prof_about_text"
-          type="text"
-          placeholder={profileData?.about}
-          onChange={(e) => setAbout(e.target.value)}
-          value={about}
-        />
-        <button>update</button>
-      </div>
+    <form id="update_about_form" onSubmit={submitAbout}>
+      <textarea
+        type="text"
+        className="update_about_textarea"
+        form="update_about_form"
+        placeholder={profileData?.about}
+        onChange={(e) => setAbout(e.target.value)}
+        value={about}
+      ></textarea>
+      <button className="update_about_btn">update</button>
     </form>
   );
 };

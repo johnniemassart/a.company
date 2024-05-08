@@ -9,26 +9,26 @@ import { selectAuth } from "../../redux/authSlice";
 const AccountUsername = () => {
   const { user_id } = useSelector(selectAuth);
   const { data: userData } = useGetUserQuery(user_id);
-  const [updateUsernaming] = useUpdateUsernameMutation(user_id);
-  const [usernaming, setUsernaming] = useState("");
+  const [updateUsername] = useUpdateUsernameMutation(user_id);
+  const [username, setUsername] = useState("");
 
   const usernameSubmit = async (e) => {
     await e.preventDefault();
-    if (usernaming) {
-      await updateUsernaming({ ...userData, username: usernaming });
-      setUsernaming("");
+    if (username) {
+      await updateUsername({ ...userData, username: username });
+      setUsername("");
     }
   };
 
   return (
-    <form onSubmit={usernameSubmit}>
-      <label>update username</label>
+    <form className="update_username_form" onSubmit={usernameSubmit}>
       <input
         type="text"
-        onChange={(e) => setUsernaming(e.target.value)}
-        value={usernaming}
+        className="update_username_input"
+        placeholder={userData?.username}
+        onChange={(e) => setUsername(e.target.value)}
+        value={username}
       />
-      <button>update</button>
     </form>
   );
 };

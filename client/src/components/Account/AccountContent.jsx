@@ -1,22 +1,18 @@
-import React, { useState } from "react";
-import { useGetProfileQuery } from "../../redux/accountApi";
-import { useSelector } from "react-redux";
-import { selectAuth } from "../../redux/authSlice";
+import React from "react";
 import AccountProfPic from "./AccountProfPic";
 import AccountAbout from "./AccountAbout";
 import AccountUsername from "./AccountUsername";
+import AccountUpdateHeader from "./AccountUpdateHeader";
 
 const AccountContent = () => {
-  const { user_id } = useSelector(selectAuth);
-  const { data: profileData } = useGetProfileQuery(user_id);
-  //   console.log(profileData);
   return (
     <div className="account_content_wrapper">
       <div className="update_account_wrapper">
+        <AccountUpdateHeader />
         <AccountProfPic />
+        <AccountUsername />
         <AccountAbout />
       </div>
-      <AccountUsername />
     </div>
   );
 };

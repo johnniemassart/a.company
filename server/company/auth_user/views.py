@@ -38,8 +38,17 @@ class ProfileViewSet(viewsets.ModelViewSet):
     serializer_class = ProfileAllSerializer
     parser_classes = [MultiPartParser, FormParser]
 
-    def perform_create(self, serializer):
-        return serializer.save(user=self.request.user)
+    # def perform_create(self, serializer):
+    #     return serializer.save(user=self.request.user)
+
+    def create(self, request, *args, **kwargs):
+        user = request.data["user"]
+        about = request.data["about"]
+        profile_pic = request.data["profile_pic"]
+        follows = request.data["follows"]
+        return Profile.objects.create(
+            user=user, about=about, profile_pic=profile_pic, follows=follows
+        )
 
 
 class PostViewSet(viewsets.ModelViewSet):
