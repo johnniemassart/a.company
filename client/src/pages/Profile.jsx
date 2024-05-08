@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/Profile.css";
+import "../css/Accordion.css";
 import ProfNav from "../components/Profile/ProfNav";
 import ProfContent from "../components/Profile/ProfContent";
 import ProfWelcome from "../components/Profile/ProfWelcome";

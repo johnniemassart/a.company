@@ -1,0 +1,56 @@
+.accordion {
+  border-bottom: 1px solid black;
+}
+
+.accordion_header {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.accordion_header:hover {
+  background-color: rgb(205, 205, 205);
+  cursor: pointer;
+}
+
+.accordion_header > p {
+  /* border: 1px solid brown; */
+  margin: 0px 10px;
+}
+
+.accordion_title {
+  color: black;
+}
+
+.accordion_username {
+  color: black;
+}
+
+.accordion_year {
+  color: black;
+}
+
+.accordion_body {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 1s cubic-bezier(0, 1, 0, 1);
+}
+
+.accordion_body.show {
+  height: auto;
+  max-height: 9999px;
+  transition: all 1s cubic-bezier(1, 0, 1, 0);
+}
+
+.accordion_content_wrapper {
+  min-height: 75px;
+  /* border: 1px solid purple; */
+  display: flex;
+  align-items: center;
+}
+
+.accordion_content {
+  color: black;
+  /* border: 1px solid orchid; */
+  margin-left: 10px;
+}

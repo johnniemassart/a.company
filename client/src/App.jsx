@@ -6,6 +6,7 @@ import PrivateRoutes from "./utils/PrivateRoutes";
 import Profile from "./pages/Profile";
 import Test from "./pages/Test";
 import Account from "./pages/Account";
+import CreatePost from "./pages/CreatePost";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/profile" element={<Profile />} />
-            <Route path="/test" element={<Test />} />
+            <Route path="/post" element={<CreatePost />} />
             <Route path="/account" element={<Account />} />
           </Route>
         </Routes>

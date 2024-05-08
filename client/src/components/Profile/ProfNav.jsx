@@ -16,8 +16,8 @@ const ProfNav = () => {
       <Link to="/profile" className="prof_nav_link a_company">
         a.company
       </Link>
-      <Link to="/profile" className="prof_nav_link">
-        feed
+      <Link to="/post" className="prof_nav_link">
+        create post
       </Link>
       <Link to="/account" className="prof_nav_link">
         account

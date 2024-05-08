@@ -50,7 +50,7 @@ class PostSerializer(ModelSerializer):
 class ProfileFollowsSerializer(ModelSerializer):
     class Meta:
         model = Profile
-        fields = ["user", "follows", "posts"]
+        fields = ["user", "follows"]
 
 
 class ProfileFollowedBySerializer(ModelSerializer):
@@ -75,3 +75,19 @@ class ProfileFollowsPostSerializer(ModelSerializer):
     class Meta:
         model = Profile
         fields = ["user", "follows", "posts"]
+
+
+class UsernameSerializer(ModelSerializer):
+    user = serializers.StringRelatedField()
+
+    class Meta:
+        model = Profile
+        fields = ["user", "profile_pic"]
+
+
+class ProfileFollowingSerializer(ModelSerializer):
+    follows = UsernameSerializer(many=True)
+
+    class Meta:
+        model = Profile
+        fields = ["user", "follows"]
