@@ -43,7 +43,7 @@ const LogInForm = () => {
       setUsername("");
       setPassword("");
       console.log("log in success");
-      navigate("/profile");
+      navigate(`/${username}`);
     }
   }, [isLoginSuccess]);
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/authSlice";
 
@@ -11,15 +11,16 @@ const ProfNav = () => {
     console.log("log out successful");
     navigate("/login");
   };
+  const params = useParams();
   return (
     <div className="prof_nav_wrapper">
-      <Link to="/profile" className="prof_nav_link a_company">
+      <Link to={`/${params.username}`} className="prof_nav_link a_company">
         a.company
       </Link>
-      <Link to="/post" className="prof_nav_link">
+      <Link to={`/${params.username}/post`} className="prof_nav_link">
         create post
       </Link>
-      <Link to="/account" className="prof_nav_link">
+      <Link to={`/${params.username}/account`} className="prof_nav_link">
         account
       </Link>
       <button onClick={handleLogout} className="prof_nav_link nav_btn">
