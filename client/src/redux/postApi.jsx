@@ -15,7 +15,21 @@ export const postApi = createApi({
       query: (user_id) => `auth/following_posts/${user_id}`,
       providesTags: ["Post"],
     }),
+    postPost: builder.mutation({
+      query: (body) => {
+        return {
+          url: "auth/posts/",
+          method: "post",
+          body,
+        };
+      },
+      invalidatesTags: ["Post"],
+    }),
   }),
 });
 
-export const { usePostDataQuery, useFollowingPostDataQuery } = postApi;
+export const {
+  usePostDataQuery,
+  useFollowingPostDataQuery,
+  usePostPostMutation,
+} = postApi;

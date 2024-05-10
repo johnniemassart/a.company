@@ -7,11 +7,15 @@
 }
 
 .following_account_content_wrapper {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-top: 50px;
+}
+
+.following_account_content_wrapper > * {
+  margin-bottom: 10px;
 }
 
 .following_account_img {
@@ -20,4 +24,6 @@
   border-radius: 50%;
   display: inline-block;
   object-fit: cover;
+  border: 1px solid white;
+  margin-bottom: 20px;
 }
