@@ -29,23 +29,24 @@ const CreatePostForm = () => {
   }, [postPostSuccess]);
   return (
     <form className="create_post_form" onSubmit={handleCreatePost}>
-      <h1 className="create_post_header">create a post</h1>
-      <input
-        type="text"
-        placeholder="title"
-        className="create_post_title"
-        onChange={(e) => setTitle(e.target.value)}
-        value={title}
-      />
-      <textarea
-        name="content"
-        id="post_content"
-        placeholder="content"
-        className="create_post_content"
-        onChange={(e) => setContent(e.target.value)}
-        value={content}
-      ></textarea>
-      <button className="create_post_btn">submit</button>
+      <div className="create_post_content_wrapper">
+        <input
+          type="text"
+          placeholder="title"
+          className="create_post_title"
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+        />
+        <textarea
+          name="content"
+          id="post_content"
+          placeholder="content"
+          className="create_post_content"
+          onChange={(e) => setContent(e.target.value)}
+          value={content}
+        ></textarea>
+      </div>
+      <button className="create_post_btn">post</button>
     </form>
   );
 };
