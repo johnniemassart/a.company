@@ -72,7 +72,7 @@ def upload_to(instance, filename):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="user_set")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     follows = models.ManyToManyField(
         "self", related_name="followed_by", symmetrical=False, blank=True
     )

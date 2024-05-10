@@ -1,0 +1,23 @@
+.following_account_wrapper {
+  height: 100svh;
+  border: 1px solid orange;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.following_account_content_wrapper {
+  border: 1px solid green;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.following_account_img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: inline-block;
+  object-fit: cover;
+}

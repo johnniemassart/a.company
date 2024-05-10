@@ -6,7 +6,7 @@ import PrivateRoutes from "./utils/PrivateRoutes";
 import Profile from "./pages/Profile";
 import Account from "./pages/Account";
 import CreatePost from "./pages/CreatePost";
-import FollowingAccount from "./components/FollowingAccount/FollowingAccount";
+import FollowingAccount from "./pages/FollowingAccount";
 
 function App() {
   return (

@@ -34,7 +34,7 @@ const AccountFollowingList = () => {
                   />
                   <Link
                     className="account_following_user"
-                    to={`/${loggedInUsername}/account/${idx + 1}`}
+                    to={`/${loggedInUsername}/account/${following.id}`}
                   >
                     {following.user}
                   </Link>

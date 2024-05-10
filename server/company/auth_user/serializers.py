@@ -82,11 +82,12 @@ class UsernameSerializer(ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ["user", "profile_pic"]
+        fields = ["id", "user", "profile_pic"]
 
 
 class ProfileFollowingSerializer(ModelSerializer):
     follows = UsernameSerializer(many=True)
+    # follows = UserAccountFollowingSerializer
 
     class Meta:
         model = Profile
