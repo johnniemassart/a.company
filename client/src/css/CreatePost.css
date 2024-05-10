@@ -1,6 +1,6 @@
 .create_post_wrapper {
   height: 100svh;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@
   margin-top: 10px;
 }
 
-.create_post_header > span {
+.create_post_header_name {
   font-style: italic;
   margin-left: 10px;
   border-bottom: 0.75px solid rgb(180, 180, 180);

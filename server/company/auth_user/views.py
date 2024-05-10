@@ -80,7 +80,7 @@ class ProfilePostsList(generics.ListAPIView):
 
 
 class FollowingPosts(generics.ListAPIView):
-    serializer_class = PostSerializer
+    serializer_class = FollowingPostSerializer
 
     def get_queryset(self):
         user = self.kwargs["user"]

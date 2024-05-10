@@ -47,6 +47,14 @@ class PostSerializer(ModelSerializer):
         fields = "__all__"
 
 
+class FollowingPostSerializer(ModelSerializer):
+    user = serializers.StringRelatedField()
+
+    class Meta:
+        model = Post
+        fields = "__all__"
+
+
 class ProfileFollowsSerializer(ModelSerializer):
     class Meta:
         model = Profile
