@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { selectAuth } from "../../redux/authSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useGetProfileQuery } from "../../redux/accountApi";
+import { useGetProfileQuery } from "../../redux/userApi";
 import { updateAbout } from "../../redux/accountSlice";
 
 const AccountAbout = () => {

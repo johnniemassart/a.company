@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlice";
-import { useProfileDataQuery } from "../../redux/profileApi";
+import { useGetUserQuery } from "../../redux/userApi";
 
 const ProfWelcome = () => {
   const user = useSelector(selectAuth);
-  const { data: profData } = useProfileDataQuery(user.user_id);
+  const { data: profData } = useGetUserQuery(user.user_id);
   let prof_username = profData?.username;
   return (
     <div className="prof_welcome_wrapper">

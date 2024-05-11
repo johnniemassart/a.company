@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useGetProfileQuery } from "../../redux/accountApi";
+import { useGetProfileQuery } from "../../redux/userApi";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlice";
 import { updateProfilePic } from "../../redux/accountSlice";

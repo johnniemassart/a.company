@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   useGetUserQuery,
   useUpdateUsernameMutation,
-} from "../../redux/authApi";
+} from "../../redux/userApi";
 import { useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlice";
 

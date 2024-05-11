@@ -7,12 +7,16 @@ export const postApi = createApi({
   }),
   tagTypes: ["Post"],
   endpoints: (builder) => ({
-    postData: builder.query({
-      query: (user_id) => `api/user/posts/${user_id}`,
+    getPosts: builder.query({
+      query: () => `api/posts`,
       providesTags: ["Post"],
     }),
-    followingPostData: builder.query({
-      query: (user_id) => `api/profile/following_posts/${user_id}`,
+    getPost: builder.query({
+      query: (user_id) => `api/posts/${user_id}`,
+      providesTags: ["Post"],
+    }),
+    getProfilePosts: builder.query({
+      query: (user_id) => `api/user/posts/${user_id}`,
       providesTags: ["Post"],
     }),
     postPost: builder.mutation({
@@ -25,11 +29,17 @@ export const postApi = createApi({
       },
       invalidatesTags: ["Post"],
     }),
+    getProfileFollowingPosts: builder.query({
+      query: (user_id) => `api/profile/following_posts/${user_id}`,
+      providesTags: ["Post"],
+    }),
   }),
 });
 
 export const {
-  usePostDataQuery,
-  useFollowingPostDataQuery,
+  useGetPostQuery,
+  useGetPostsQuery,
+  useGetProfilePostsQuery,
   usePostPostMutation,
+  useGetProfileFollowingPostsQuery,
 } = postApi;

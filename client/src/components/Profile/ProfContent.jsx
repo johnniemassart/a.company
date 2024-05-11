@@ -1,16 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlice";
-import {
-  usePostDataQuery,
-  useFollowingPostDataQuery,
-} from "../../redux/postApi";
+import { useGetProfileFollowingPostsQuery } from "../../redux/postApi";
 import Accordion from "../global/Accordion";
 
 const ProfContent = () => {
   const { user_id } = useSelector(selectAuth);
   const { data: followingPostData, isSuccess: userFollowingPostSuccess } =
-    useFollowingPostDataQuery(user_id);
+    useGetProfileFollowingPostsQuery(user_id);
   const displayUser = true;
   return (
     <div className="prof_cont_wrapper">

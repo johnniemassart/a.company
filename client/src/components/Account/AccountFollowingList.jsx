@@ -1,14 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlice";
-import { useGetFollowingQuery } from "../../redux/accountApi";
+import { useGetFollowingsQuery } from "../../redux/userApi";
 import defaultImage from "/src/assets/default_img.png";
 import { Link, useParams } from "react-router-dom";
 
 const AccountFollowingList = () => {
   const { user_id } = useSelector(selectAuth);
   const { data: followingData, isSuccess: followingDataSuccess } =
-    useGetFollowingQuery(user_id);
+    useGetFollowingsQuery(user_id);
   //   console.log(followingData);
   const params = useParams();
   const loggedInUsername = params.username;
