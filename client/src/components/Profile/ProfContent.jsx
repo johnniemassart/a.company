@@ -5,7 +5,6 @@ import {
   usePostDataQuery,
   useFollowingPostDataQuery,
 } from "../../redux/postApi";
-import { useAccessUsernameQuery } from "../../redux/profileApi";
 import Accordion from "../global/Accordion";
 
 const ProfContent = () => {

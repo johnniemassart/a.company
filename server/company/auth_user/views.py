@@ -51,19 +51,6 @@ class ProfileViewSet(viewsets.ModelViewSet):
         )
 
 
-class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-
-
-class PostList(generics.ListAPIView):
-    serializer_class = PostSerializer
-
-    def get_queryset(self):
-        user = self.kwargs["user"]
-        return Post.objects.filter(user=user)
-
-
 class ProfileFollowsViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileFollowsSerializer
@@ -72,19 +59,6 @@ class ProfileFollowsViewSet(viewsets.ModelViewSet):
 class ProfileFollowedByList(generics.ListAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileFollowedBySerializer
-
-
-class ProfilePostsList(generics.ListAPIView):
-    queryset = Profile.objects.all()
-    serializer_class = ProfilePostsSerializer
-
-
-class FollowingPosts(generics.ListAPIView):
-    serializer_class = FollowingPostSerializer
-
-    def get_queryset(self):
-        user = self.kwargs["user"]
-        return Post.objects.filter(user__followed_by=user)
 
 
 class UserFollowingViewSet(viewsets.ModelViewSet):

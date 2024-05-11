@@ -8,17 +8,17 @@ export const postApi = createApi({
   tagTypes: ["Post"],
   endpoints: (builder) => ({
     postData: builder.query({
-      query: (user_id) => `auth/users/posts/${user_id}`,
+      query: (user_id) => `api/user/posts/${user_id}`,
       providesTags: ["Post"],
     }),
     followingPostData: builder.query({
-      query: (user_id) => `auth/following_posts/${user_id}`,
+      query: (user_id) => `api/profile/following_posts/${user_id}`,
       providesTags: ["Post"],
     }),
     postPost: builder.mutation({
       query: (body) => {
         return {
-          url: "auth/posts/",
+          url: "api/posts/",
           method: "post",
           body,
         };
