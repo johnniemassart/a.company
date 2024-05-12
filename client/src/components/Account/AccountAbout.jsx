@@ -25,7 +25,11 @@ const AccountAbout = () => {
         type="text"
         className="update_about_textarea"
         form="update_about_form"
-        placeholder={profileData?.about}
+        placeholder={
+          profileData?.about == null || profileData?.about == ""
+            ? "tell others about you..."
+            : profileData?.about
+        }
         onChange={(e) => setAbout(e.target.value)}
         value={about}
       ></textarea>

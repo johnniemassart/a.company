@@ -2,24 +2,22 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlice";
 import { useGetFollowingsQuery } from "../../redux/userApi";
-import defaultImage from "/src/assets/default_img.png";
 import { Link, useParams } from "react-router-dom";
 
 const AccountFollowingList = () => {
   const { user_id } = useSelector(selectAuth);
   const { data: followingData, isSuccess: followingDataSuccess } =
     useGetFollowingsQuery(user_id);
-  //   console.log(followingData);
   const params = useParams();
   const loggedInUsername = params.username;
   return (
     <div>
       <h1 className="account_following_header">following</h1>
-      {followingDataSuccess &&
+      {followingDataSuccess && followingData?.follows.length > 1 ? (
         followingData?.follows.map((following, idx) => {
           return (
-            <div key={following.user}>
-              {followingData?.user != idx + 1 && (
+            <div key={following.id}>
+              {followingData?.user != following.id && (
                 <div className="account_following_wrapper">
                   <img
                     className="account_following_img"
@@ -38,7 +36,10 @@ const AccountFollowingList = () => {
               )}
             </div>
           );
-        })}
+        })
+      ) : (
+        <h1>not following anyone yet</h1>
+      )}
     </div>
   );
 };

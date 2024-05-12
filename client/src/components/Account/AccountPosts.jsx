@@ -12,7 +12,7 @@ const AccountPosts = () => {
   return (
     <div>
       <h1 className="account_posts_header">my posts</h1>
-      {userPostsSuccess &&
+      {userPostsSuccess && userPosts.length > 0 ? (
         userPosts?.map((post) => {
           return (
             <Accordion
@@ -24,7 +24,10 @@ const AccountPosts = () => {
               displayUser={displayUser}
             />
           );
-        })}
+        })
+      ) : (
+        <h1>no posts to show</h1>
+      )}
     </div>
   );
 };

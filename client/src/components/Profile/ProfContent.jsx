@@ -12,7 +12,7 @@ const ProfContent = () => {
   return (
     <div className="prof_cont_wrapper">
       <h1 className="prof_content_header">my content</h1>
-      {userFollowingPostSuccess &&
+      {userFollowingPostSuccess && followingPostData.length > 0 ? (
         followingPostData?.map((post) => {
           return (
             <Accordion
@@ -24,7 +24,10 @@ const ProfContent = () => {
               displayUser={displayUser}
             />
           );
-        })}
+        })
+      ) : (
+        <h1>no content to show</h1>
+      )}
     </div>
   );
 };
