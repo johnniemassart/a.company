@@ -23,11 +23,7 @@ const AccountFollowingList = () => {
                 <div className="account_following_wrapper">
                   <img
                     className="account_following_img"
-                    src={
-                      following.profile_pic != null
-                        ? following.profile_pic
-                        : defaultImage
-                    }
+                    src={following.profile_pic}
                     alt={
                       following.profile_pic != null ? following.user : "default"
                     }

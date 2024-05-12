@@ -77,7 +77,9 @@ class Profile(models.Model):
         "self", related_name="followed_by", symmetrical=False, blank=True
     )
     about = models.TextField(null=True, blank=True)
-    profile_pic = models.ImageField(null=True, blank=True, upload_to=upload_to)
+    profile_pic = models.ImageField(
+        null=True, blank=True, upload_to=upload_to, default="images/default_img.png"
+    )
 
     def __str__(self):
         return f"{self.user}"
