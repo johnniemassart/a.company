@@ -17,6 +17,16 @@ export const authApi = createApi({
       },
       invalidatesTags: ["AuthUser"],
     }),
+    // registerUser: builder.mutation({
+    //   query: (body) => {
+    //     return {
+    //       url: "auth/api/token/",
+    //       method: "post",
+    //       body,
+    //     };
+    //   },
+    //   invalidatesTags: ["AuthUser"],
+    // }),
   }),
 });
 

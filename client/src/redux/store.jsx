@@ -5,6 +5,7 @@ import authReducer from "./authSlice";
 import { postApi } from "./postApi";
 import accountReducer from "./accountSlice";
 import { userApi } from "./userApi";
+import userReducer from "../redux/userSlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     [postApi.reducerPath]: postApi.reducer,
     auth: authReducer,
     account: accountReducer,
+    user: userReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat([

@@ -35,7 +35,7 @@ export const userApi = createApi({
       query: () => `auth/profile_followed_by`,
       providesTags: ["UserApi"],
     }),
-    updateUsername: builder.mutation({
+    putUser: builder.mutation({
       query: ({ id, ...rest }) => {
         return {
           url: `auth/users/${id}/`,
@@ -70,6 +70,6 @@ export const {
   useGetFollowingQuery,
   useGetFollowingsQuery,
   useGetProfileFollowedByQuery,
-  useUpdateUsernameMutation,
+  usePutUserMutation,
   useUpdateAboutMutation,
 } = userApi;
