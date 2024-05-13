@@ -17,15 +17,17 @@ const ProfNav = () => {
       <Link to={`/${params.username}`} className="prof_nav_link a_company">
         a.company
       </Link>
-      <Link to={`/${params.username}/post`} className="prof_nav_link">
-        create post
-      </Link>
-      <Link to={`/${params.username}/account`} className="prof_nav_link">
-        account
-      </Link>
-      <button onClick={handleLogout} className="prof_nav_link nav_btn">
-        log out
-      </button>
+      <div className="other_nav_link_wrapper">
+        <Link to={`/${params.username}/post`} className="prof_nav_link">
+          create post
+        </Link>
+        <Link to={`/${params.username}/account`} className="prof_nav_link">
+          account
+        </Link>
+        <button onClick={handleLogout} className="prof_nav_link nav_btn">
+          log out
+        </button>
+      </div>
     </div>
   );
 };

@@ -38,7 +38,7 @@ const AccountFollowingList = () => {
           );
         })
       ) : (
-        <h1>not following anyone yet</h1>
+        <p className="account_not_following">not following anyone yet</p>
       )}
     </div>
   );

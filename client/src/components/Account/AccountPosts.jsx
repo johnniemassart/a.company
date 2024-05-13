@@ -17,6 +17,7 @@ const AccountPosts = () => {
           return (
             <Accordion
               key={post.id}
+              id={post.id}
               title={post.title}
               content={post.content}
               created={post.created_at}
@@ -26,7 +27,7 @@ const AccountPosts = () => {
           );
         })
       ) : (
-        <h1>no posts to show</h1>
+        <p className="account_no_posts">no posts to show</p>
       )}
     </div>
   );

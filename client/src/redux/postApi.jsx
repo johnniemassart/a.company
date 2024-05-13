@@ -12,7 +12,7 @@ export const postApi = createApi({
       providesTags: ["Post"],
     }),
     getPost: builder.query({
-      query: (user_id) => `api/posts/${user_id}`,
+      query: (id) => `api/posts/${id}`,
       providesTags: ["Post"],
     }),
     getProfilePosts: builder.query({
@@ -29,6 +29,16 @@ export const postApi = createApi({
       },
       invalidatesTags: ["Post"],
     }),
+    deletePost: builder.mutation({
+      query: (id) => {
+        return {
+          url: `api/posts/${id}/`,
+          method: "delete",
+          body: id,
+        };
+      },
+      invalidatesTags: ["Post"],
+    }),
     getProfileFollowingPosts: builder.query({
       query: (user_id) => `api/profile/following_posts/${user_id}`,
       providesTags: ["Post"],
@@ -41,5 +51,6 @@ export const {
   useGetPostsQuery,
   useGetProfilePostsQuery,
   usePostPostMutation,
+  useDeletePostMutation,
   useGetProfileFollowingPostsQuery,
 } = postApi;

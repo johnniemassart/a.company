@@ -3,15 +3,19 @@
   height: 100svh;
   display: grid;
   grid-template-areas: "nav" "welcome" "content";
-  grid-template-rows: 34px 130px 1fr;
+  grid-template-rows: 34px 100px 1fr;
 }
 
 .prof_nav_wrapper {
   grid-area: nav;
-  /* border: 1px solid green; */
+  background-color: black;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: space-between;
+}
+
+.other_nav_link_wrapper {
+  margin-right: 10px;
 }
 
 .prof_nav_link {
@@ -25,7 +29,6 @@
 }
 
 .a_company {
-  flex-grow: 1;
   margin-left: 10px;
 }
 
@@ -42,7 +45,7 @@
 .prof_welcome_wrapper {
   grid-area: welcome;
   /* border: 1px solid orange; */
-  background-color: rgb(100, 100, 100);
+  background-color: black;
   display: flex;
   align-items: end;
 }
@@ -61,8 +64,20 @@
   color: black;
 }
 
+.prof_cont_wrapper:hover {
+  background-color: black;
+}
+
+.prof_cont_wrapper:hover * {
+  color: rgb(100, 100, 100);
+}
+
+.prof_cont_wrapper:hover > .prof_content_header {
+  color: rgb(50, 50, 50);
+}
+
 .prof_content_header {
-  border-bottom: 1px solid black;
+  text-align: center;
   color: black;
   padding-left: 10px;
 }

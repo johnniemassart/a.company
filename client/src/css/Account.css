@@ -53,6 +53,12 @@
   color: black;
 }
 
+.account_no_posts {
+  margin-left: 10px;
+  margin-top: 10px;
+  color: black;
+}
+
 .account_following_header {
   color: black;
   margin-left: 10px;
@@ -77,6 +83,12 @@
   display: inline-block;
   object-fit: cover;
   margin-left: 10px;
+}
+
+.account_not_following {
+  margin-top: 10px;
+  margin-left: 10px;
+  color: black;
 }
 
 .update_account_wrapper {
