@@ -8,9 +8,14 @@
 .account_welcome_wrapper {
   grid-area: welcome;
   /* border: 1px solid orange; */
-  background-color: rgb(100, 100, 100);
+  background-color: black;
   display: flex;
+  justify-content: center;
   align-items: end;
+}
+
+.account_welcome_username {
+  margin-bottom: 10px;
 }
 
 .account_content_wrapper {
@@ -24,7 +29,7 @@
 
 .account_details_wrapper {
   grid-area: account_details;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .account_navbar_wrapper {

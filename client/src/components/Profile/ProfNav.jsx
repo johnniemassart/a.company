@@ -18,7 +18,7 @@ const ProfNav = () => {
         a.company
       </Link>
       <div className="other_nav_link_wrapper">
-        <Link to={`/${params.username}/post`} className="prof_nav_link">
+        <Link to={`/${params.username}/create`} className="prof_nav_link">
           create post
         </Link>
         <Link to={`/${params.username}/account`} className="prof_nav_link">

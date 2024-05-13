@@ -9,7 +9,7 @@ const AccountWelcome = () => {
 
   return (
     <div className="account_welcome_wrapper">
-      about _{usernameData?.username}
+      <h1 className="account_welcome_username">_{usernameData?.username}</h1>
     </div>
   );
 };

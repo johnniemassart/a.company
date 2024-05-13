@@ -4,6 +4,8 @@ from .models import *
 
 
 class PostSerializer(ModelSerializer):
+    user = serializers.StringRelatedField()
+
     class Meta:
         model = Post
         fields = "__all__"

@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import Account from "./pages/Account";
 import CreatePost from "./pages/CreatePost";
 import FollowingAccount from "./pages/FollowingAccount";
+import PostPage from "./pages/PostPage";
 
 function App() {
   return (
@@ -18,12 +19,13 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/:username" element={<Profile />} />
-            <Route path="/:username/post" element={<CreatePost />} />
+            <Route path="/:username/create" element={<CreatePost />} />
             <Route path="/:username/account" element={<Account />} />
             <Route
               path="/:username/account/:id"
               element={<FollowingAccount />}
             />
+            <Route path="/:username/:author/:postid" element={<PostPage />} />
           </Route>
         </Routes>
       </Router>

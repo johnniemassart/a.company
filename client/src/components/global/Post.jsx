@@ -1,9 +1,14 @@
 import React from "react";
 import { useDeletePostMutation } from "../../redux/postApi";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Post = ({ id, title, content, created, user, displayUser }) => {
   const year_created_sliced = created.slice(0, 4);
-  const handlePostPage = () => {};
+  const navigate = useNavigate();
+  const { username } = useParams();
+  const handlePostPage = () => {
+    navigate(`/${username}/${user}/${id}`);
+  };
   return (
     <div className="post_wrapper" onClick={handlePostPage}>
       <h1 className="post_content_title">{title}</h1>
