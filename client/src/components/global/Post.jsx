@@ -9,14 +9,24 @@ const Post = ({ id, title, content, created, user, displayUser }) => {
   const handlePostPage = () => {
     navigate(`/${username}/${user}/${id}`);
   };
+  const [deletePost] = useDeletePostMutation();
+  const handleDelete = () => {
+    deletePost(id);
+  };
   return (
-    <div className="post_wrapper" onClick={handlePostPage}>
-      <h1 className="post_content_title">{title}</h1>
-      <div className="post_details_wrapper">
-        <p className="post_user_info">
-          _{user}, {year_created_sliced}.
-        </p>
+    <div className="post_outer_wrapper">
+      <div className="post_wrapper" onClick={handlePostPage}>
+        <h1 className="post_content_title">{title}</h1>
+        <div className="post_details_wrapper">
+          {displayUser && <p className="post_user_info">_{user},</p>}
+          <p className="post_user_info">{year_created_sliced}</p>
+        </div>
       </div>
+      {!displayUser && (
+        <button onClick={handleDelete} className="post_delete_btn">
+          X
+        </button>
+      )}
     </div>
   );
 };

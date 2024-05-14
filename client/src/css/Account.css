@@ -32,6 +32,57 @@
   /* border: 1px solid red; */
 }
 
+.account_details_wrapper:hover {
+  background-color: black;
+}
+
+.account_details_wrapper:hover > .account_navbar_wrapper > .account_navbar_btn {
+  color: rgb(100, 100, 100);
+}
+
+.account_details_wrapper:hover > * {
+  color: rgb(100, 100, 100);
+}
+
+.account_details_wrapper:hover > .post_outer_wrapper * {
+  color: rgb(100, 100, 100);
+}
+
+.account_details_wrapper:hover > .post_outer_wrapper > .post_delete_btn:hover {
+  color: red;
+}
+
+.account_details_wrapper
+  > .post_outer_wrapper:hover
+  > .post_wrapper
+  > .post_content_title {
+  color: white;
+}
+
+.account_details_wrapper
+  > .post_outer_wrapper:hover
+  > .post_wrapper
+  > .post_details_wrapper
+  > .post_user_info {
+  color: white;
+}
+
+.account_details_wrapper:hover > div > .account_following_header {
+  color: rgb(100, 100, 100);
+}
+
+.account_details_wrapper:hover > div * {
+  color: rgb(100, 100, 100);
+}
+
+.account_details_wrapper
+  > div
+  > div
+  > .account_following_wrapper
+  > .account_following_user:hover {
+  color: white;
+}
+
 .account_navbar_wrapper {
   /* border: 1px solid green; */
   width: 100%;
@@ -52,6 +103,9 @@
   font-style: italic;
   cursor: pointer;
 }
+
+/* .account_posts_wrapper {
+} */
 
 .account_posts_header {
   margin-left: 10px;

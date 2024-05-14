@@ -76,6 +76,21 @@
   color: rgb(50, 50, 50);
 }
 
+.prof_cont_wrapper
+  > .post_outer_wrapper:hover
+  > .post_wrapper
+  > .post_content_title {
+  color: white;
+}
+
+.prof_cont_wrapper
+  > .post_outer_wrapper:hover
+  > .post_wrapper
+  > .post_details_wrapper
+  > .post_user_info {
+  color: white;
+}
+
 .prof_content_header {
   text-align: center;
   color: black;

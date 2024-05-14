@@ -8,7 +8,7 @@ const PostPage = () => {
   const { data: postData, isSuccess: postDataSuccess } =
     useGetPostQuery(postid);
   return (
-    <div>
+    <div className="post_page_wrapper">
       <h1>{postData?.user}</h1>
       <p>{postData?.title}</p>
       <p>{postData?.content}</p>

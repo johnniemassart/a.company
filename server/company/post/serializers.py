@@ -4,7 +4,7 @@ from .models import *
 
 
 class PostSerializer(ModelSerializer):
-    user = serializers.StringRelatedField()
+    # user = serializers.StringRelatedField()
 
     class Meta:
         model = Post

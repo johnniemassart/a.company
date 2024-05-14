@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlice";
 import { useGetProfilePostsQuery } from "../../redux/postApi";
-import Accordion from "../global/Accordion";
+import Post from "../global/Post";
 
 const AccountPosts = () => {
   const { user_id } = useSelector(selectAuth);
@@ -10,12 +10,12 @@ const AccountPosts = () => {
     useGetProfilePostsQuery(user_id);
   const displayUser = false;
   return (
-    <div>
+    <>
       <h1 className="account_posts_header">my posts</h1>
       {userPostsSuccess && userPosts.length > 0 ? (
         userPosts?.map((post) => {
           return (
-            <Accordion
+            <Post
               key={post.id}
               id={post.id}
               title={post.title}
@@ -29,7 +29,7 @@ const AccountPosts = () => {
       ) : (
         <p className="account_no_posts">no posts to show</p>
       )}
-    </div>
+    </>
   );
 };
 
