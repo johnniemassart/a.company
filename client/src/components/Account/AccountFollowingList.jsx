@@ -1,18 +1,23 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlice";
-import { useGetFollowingsQuery } from "../../redux/userApi";
+import { useGetFollowingsQuery, useGetProfileQuery } from "../../redux/userApi";
 import { Link, useParams } from "react-router-dom";
 
 const AccountFollowingList = () => {
   const { user_id } = useSelector(selectAuth);
   const { data: followingData, isSuccess: followingDataSuccess } =
     useGetFollowingsQuery(user_id);
+  const { data: profileData, isSuccess: profileDataSuccess } =
+    useGetProfileQuery(user_id);
   const params = useParams();
   const loggedInUsername = params.username;
   return (
     <div>
-      <h1 className="account_following_header">following</h1>
+      <h1 className="account_following_header">
+        following
+        {profileDataSuccess && `, {${profileData?.following_count - 1}}`}
+      </h1>
       {followingDataSuccess && followingData?.follows.length > 1 ? (
         followingData?.follows.map((following, idx) => {
           return (

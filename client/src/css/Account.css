@@ -50,6 +50,7 @@
 
 .account_details_wrapper:hover > .post_outer_wrapper > .post_delete_btn:hover {
   color: red;
+  cursor: pointer;
 }
 
 .account_details_wrapper

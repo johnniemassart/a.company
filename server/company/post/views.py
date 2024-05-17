@@ -29,3 +29,8 @@ class FollowingPostsList(generics.ListAPIView):
     def get_queryset(self):
         user = self.kwargs["user"]
         return Post.objects.filter(user__followed_by=user)
+
+
+class PostImageViewSet(viewsets.ModelViewSet):
+    queryset = PostImage.objects.all()
+    serializer_class = PostImageSerializer

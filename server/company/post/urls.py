@@ -4,6 +4,7 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register("posts", PostViewSet)
+router.register("images", PostImageViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),

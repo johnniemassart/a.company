@@ -41,14 +41,14 @@ class ProfileViewSet(viewsets.ModelViewSet):
     # def perform_create(self, serializer):
     #     return serializer.save(user=self.request.user)
 
-    def create(self, request, *args, **kwargs):
-        user = request.data["user"]
-        about = request.data["about"]
-        profile_pic = request.data["profile_pic"]
-        follows = request.data["follows"]
-        return Profile.objects.create(
-            user=user, about=about, profile_pic=profile_pic, follows=follows
-        )
+    # def create(self, request, *args, **kwargs):
+    #     user = request.data["user"]
+    #     about = request.data["about"]
+    #     profile_pic = request.data["profile_pic"]
+    #     follows = request.data["follows"]
+    #     return Profile.objects.create(
+    #         user=user, about=about, profile_pic=profile_pic, follows=follows
+    #     )
 
 
 class ProfileFollowsViewSet(viewsets.ModelViewSet):

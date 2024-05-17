@@ -15,9 +15,12 @@ class Post(models.Model):
         return self.title
 
 
-# class PostImage(models.Model):
-#     def upload_to(instance, filename):
-#         return "post/{filename}".format(filename=filename)
+class PostImage(models.Model):
+    def upload_to(instance, filename):
+        return "post/{filename}".format(filename=filename)
 
-#     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="images")
-#     image = models.ImageField(null=True, blank=True, upload_to=upload_to)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="images")
+    image = models.ImageField(null=True, blank=True, default="", upload_to=upload_to)
+
+    def __str__(self):
+        return f"{self.image}, {self.post.title}"
