@@ -8,6 +8,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    parser_classes = (MultiPartParser, FormParser)
 
 
 class PostList(generics.ListAPIView):

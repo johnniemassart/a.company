@@ -1,18 +1,15 @@
 import React from "react";
 import "../css/PostPage.css";
-import { Link, useParams } from "react-router-dom";
-import { useGetPostQuery } from "../redux/postApi";
+import PostNav from "../components/Post/PostNav";
+import PostContent from "../components/Post/PostContent";
+import PostFooter from "../components/Post/PostFooter";
 
 const PostPage = () => {
-  const { username, author, postid } = useParams();
-  const { data: postData, isSuccess: postDataSuccess } =
-    useGetPostQuery(postid);
   return (
     <div className="post_page_wrapper">
-      <h1>{postData?.user}</h1>
-      <p>{postData?.title}</p>
-      <p>{postData?.content}</p>
-      <Link to={`/${username}`}>Back to profile</Link>
+      <PostNav />
+      <PostContent />
+      <PostFooter />
     </div>
   );
 };

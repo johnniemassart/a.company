@@ -1,4 +1,32 @@
 .post_page_wrapper {
-  /* border: 1px solid green; */
+  border: 1px solid green;
   height: 100svh;
+  display: grid;
+  grid-template-areas: "post_nav" "post_content" "post_footer";
+  grid-template-rows: 34px 1fr 100px;
+}
+
+.post_nav_wrapper {
+  border: 1px solid purple;
+}
+
+.post_content_wrapper {
+  border: 1px solid orange;
+}
+
+.post_image {
+  width: 350px;
+  object-fit: cover;
+}
+
+.post_footer_wrapper {
+  border: 1px solid red;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.post_author {
+  margin-right: 10px;
+  margin-bottom: 10px;
 }

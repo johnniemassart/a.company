@@ -24,6 +24,10 @@ export const postApi = createApi({
         return {
           url: "api/posts/",
           method: "post",
+          prepareHeaders: (headers) => {
+            headers.set("Content-Type", "multipart/form-data");
+            return headers;
+          },
           body,
         };
       },

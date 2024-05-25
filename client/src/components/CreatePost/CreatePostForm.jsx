@@ -10,11 +10,27 @@ const CreatePostForm = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [img, setImg] = useState([]);
   const [postPost, { isSuccess: postPostSuccess }] = usePostPostMutation();
+  const handleImages = (e) => {
+    for (let i = 0; i < e.target.files.length; i++) {
+      setImg((old) => [...old, `${e.target.files[i].name}`]);
+      //   console.log(e.target.files[i]);
+    }
+  };
   const handleCreatePost = async (e) => {
     await e.preventDefault();
     if (title && content) {
-      await postPost({ title: title, content: content, user: user_id });
+      let formData = new FormData();
+      formData.append("title", title);
+      formData.append("content", content);
+      formData.append("user", user_id);
+      if (img.length > 0) {
+        for (let i = 0; i < img.length; i++) {
+          formData.append("uploaded_images", img[i]);
+        }
+      }
+      await postPost(formData);
     } else {
       console.log("error");
     }
@@ -31,6 +47,7 @@ const CreatePostForm = () => {
     <form className="create_post_form" onSubmit={handleCreatePost}>
       <div className="create_post_content_wrapper">
         <input
+          name="title"
           type="text"
           placeholder="title"
           className="create_post_title"
@@ -45,6 +62,22 @@ const CreatePostForm = () => {
           onChange={(e) => setContent(e.target.value)}
           value={content}
         ></textarea>
+        <label htmlFor="post_files" className="add_files_label">
+          add files:
+        </label>
+        {/* <div>
+          {img.map((im, i) => {
+            return <div key={i}>{im},</div>;
+          })}
+        </div> */}
+        <input
+          type="file"
+          name="uploaded_images"
+          id="post_files"
+          style={{ display: "none" }}
+          multiple
+          onChange={handleImages}
+        />
       </div>
       <button className="create_post_btn">post</button>
     </form>

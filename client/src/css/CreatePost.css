@@ -59,11 +59,17 @@
   height: 100%;
   width: 100%;
   background-color: transparent;
-  border: none;
+  border: 1px solid green;
 }
 
 .create_post_content:focus {
   outline: none;
+}
+
+.add_files_label {
+  color: rgb(128, 128, 128);
+  font-size: 14px;
+  border: 1px solid green;
 }
 
 .create_post_btn {
