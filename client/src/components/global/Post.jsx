@@ -1,13 +1,20 @@
 import React from "react";
 import { useDeletePostMutation } from "../../redux/postApi";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useGetUserQuery } from "../../redux/userApi";
 
 const Post = ({ id, title, content, created, user, displayUser }) => {
   const year_created_sliced = created.slice(0, 4);
   const navigate = useNavigate();
   const { username } = useParams();
+  const { data: userData } = useGetUserQuery(user);
+  const user_str = userData?.username;
   const handlePostPage = () => {
-    navigate(`/${username}/${user}/${id}`);
+    if (typeof user == "number") {
+      navigate(`/${username}/${user_str}/${id}`);
+    } else {
+      navigate(`/${username}/${user}/${id}`);
+    }
   };
   const [deletePost] = useDeletePostMutation();
   const handleDelete = () => {

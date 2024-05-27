@@ -15,7 +15,7 @@ const CreatePostForm = () => {
   const handleImages = (e) => {
     for (let i = 0; i < e.target.files.length; i++) {
       setImg((old) => [...old, `${e.target.files[i].name}`]);
-      //   console.log(e.target.files[i]);
+      console.log(e.target.files[i]);
     }
   };
   const handleCreatePost = async (e) => {
