@@ -96,3 +96,10 @@
   color: black;
   padding-left: 10px;
 }
+
+.prof_no_content {
+  text-align: center;
+  color: black;
+  margin-top: 10px;
+  font-size: 18px;
+}
