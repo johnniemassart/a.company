@@ -11,6 +11,8 @@ const CreatePostForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [images, setImages] = useState(null);
+  const openBrace = "{";
+  const closedBrace = "}";
   const handleCreatePost = async (e) => {
     await e.preventDefault();
     if (title && content) {
@@ -60,7 +62,17 @@ const CreatePostForm = () => {
           value={content}
         ></textarea>
         <label htmlFor="post_files" className="add_files_label">
-          add files:
+          add files {openBrace}
+          {images != null &&
+            [...images].map((image, idx) => {
+              return (
+                <span key={idx} className="post_files_name">
+                  {image.name}
+                  {idx + 1 < images.length && ", "}
+                </span>
+              );
+            })}
+          {closedBrace}
         </label>
         <input
           type="file"
