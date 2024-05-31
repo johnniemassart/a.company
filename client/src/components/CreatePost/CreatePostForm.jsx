@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { usePostPostMutation } from "../../redux/postApi";
 import { useSelector } from "react-redux";
 import { selectAuth } from "../../redux/authSlice";
+import axios from "axios";
 
 const CreatePostForm = () => {
   const { user_id } = useSelector(selectAuth);
@@ -10,14 +10,7 @@ const CreatePostForm = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [img, setImg] = useState([]);
-  const [postPost, { isSuccess: postPostSuccess }] = usePostPostMutation();
-  const handleImages = (e) => {
-    for (let i = 0; i < e.target.files.length; i++) {
-      setImg((old) => [...old, `${e.target.files[i].name}`]);
-      console.log(e.target.files[i]);
-    }
-  };
+  const [images, setImages] = useState(null);
   const handleCreatePost = async (e) => {
     await e.preventDefault();
     if (title && content) {
@@ -25,24 +18,28 @@ const CreatePostForm = () => {
       formData.append("title", title);
       formData.append("content", content);
       formData.append("user", user_id);
-      if (img.length > 0) {
-        for (let i = 0; i < img.length; i++) {
-          formData.append("uploaded_images", img[i]);
-        }
+      for (let i = 0; i < images.length; i++) {
+        formData.append(`uploaded_images`, images[i]);
       }
-      await postPost(formData);
+      const config = {
+        headers: { "Content-Type": "multipart/form-data" },
+      };
+      await axios
+        .post("http://127.0.0.1:8000/api/posts/", formData, config)
+        .then((res) => {
+          console.log(res.data);
+          setTitle("");
+          setContent("");
+          setImages(null);
+          navigate(`/${username}`);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
       console.log("error");
     }
   };
-  useEffect(() => {
-    if (postPostSuccess) {
-      setTitle("");
-      setContent("");
-      console.log("post success");
-      navigate(`/${username}`);
-    }
-  }, [postPostSuccess]);
   return (
     <form className="create_post_form" onSubmit={handleCreatePost}>
       <div className="create_post_content_wrapper">
@@ -65,18 +62,13 @@ const CreatePostForm = () => {
         <label htmlFor="post_files" className="add_files_label">
           add files:
         </label>
-        {/* <div>
-          {img.map((im, i) => {
-            return <div key={i}>{im},</div>;
-          })}
-        </div> */}
         <input
           type="file"
           name="uploaded_images"
           id="post_files"
           style={{ display: "none" }}
           multiple
-          onChange={handleImages}
+          onChange={(e) => setImages(e.target.files)}
         />
       </div>
       <button className="create_post_btn">post</button>
