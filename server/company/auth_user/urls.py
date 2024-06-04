@@ -14,6 +14,7 @@ router.register("following", UserFollowingViewSet, basename="following")
 urlpatterns = [
     path("", include(router.urls)),
     path("profile_followed_by/", ProfileFollowedByList.as_view()),
+    path("favorite/<int:id>/", favorite_add, name="favorite_add"),
     path("api/token/", MyTokenObtainView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]

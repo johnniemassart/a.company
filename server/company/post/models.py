@@ -6,6 +6,9 @@ class Post(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="posts")
     title = models.CharField(max_length=255)
     content = models.TextField()
+    favorites = models.ManyToManyField(
+        Profile, related_name="post_favorites", default=None, blank=True
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

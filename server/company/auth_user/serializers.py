@@ -40,7 +40,14 @@ class ProfileAllSerializer(ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ["user", "about", "profile_pic", "follows", "following_count"]
+        fields = [
+            "user",
+            "about",
+            "profile_pic",
+            "follows",
+            "following_count",
+            "post_favorites",
+        ]
 
     def get_following_count(self, object):
         return object.follows.count()
@@ -51,12 +58,14 @@ class ProfileAllSerializer(ModelSerializer):
         profile_pic = request.data["profile_pic"]
         follows = request.data["follows"]
         following_count = request.data["following_count"]
+        post_favorites = request.data["post_favorites"]
         return Profile.objects.create(
             user=user,
             about=about,
             profile_pic=profile_pic,
             follows=follows,
             following_count=following_count,
+            post_favorites=post_favorites,
         )
 
 

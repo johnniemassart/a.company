@@ -34,6 +34,7 @@ class PostSerializer(ModelSerializer):
             "content",
             "images",
             "uploaded_images",
+            "favorites",
             "created_at",
             "user",
         ]

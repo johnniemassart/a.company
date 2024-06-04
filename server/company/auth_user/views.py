@@ -1,6 +1,8 @@
 from .models import *
+from post.models import Post
 from .serializers import *
 from rest_framework import viewsets, generics, filters
+from django.shortcuts import get_object_or_404, HttpResponseRedirect
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser, FormParser
@@ -38,17 +40,8 @@ class ProfileViewSet(viewsets.ModelViewSet):
     serializer_class = ProfileAllSerializer
     parser_classes = [MultiPartParser, FormParser]
 
-    # def perform_create(self, serializer):
-    #     return serializer.save(user=self.request.user)
-
-    # def create(self, request, *args, **kwargs):
-    #     user = request.data["user"]
-    #     about = request.data["about"]
-    #     profile_pic = request.data["profile_pic"]
+    # def partial_update(self, request, *args, **kwargs):
     #     follows = request.data["follows"]
-    #     return Profile.objects.create(
-    #         user=user, about=about, profile_pic=profile_pic, follows=follows
-    #     )
 
 
 class ProfileFollowsViewSet(viewsets.ModelViewSet):
@@ -64,3 +57,12 @@ class ProfileFollowedByList(generics.ListAPIView):
 class UserFollowingViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileFollowingSerializer
+
+
+def favorite_add(request, id):
+    post = get_object_or_404(Post, id=id)
+    if post.favorites.filter(id=request.user.id).exists():
+        post.favorites.remove(request.user)
+    else:
+        post.favorites.add(request.user)
+    return HttpResponseRedirect(request.META["HTTP_REFERER"])
