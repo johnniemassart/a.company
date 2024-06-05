@@ -47,7 +47,7 @@ const Post = ({
           <FontAwesomeIcon
             icon={faBookmarkSolid}
             className="solid"
-            style={{ fill: "black" }}
+            style={{ color: "black" }}
           />
         ) : (
           <FontAwesomeIcon icon={faBookmarkRegular} className="regular" />
