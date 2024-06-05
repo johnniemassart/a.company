@@ -6,6 +6,7 @@ import Post from "../global/Post";
 
 const ProfContent = () => {
   const { user_id } = useSelector(selectAuth);
+  const user_id_num = Number(user_id);
   const { data: followingPostData, isSuccess: userFollowingPostSuccess } =
     useGetProfileFollowingPostsQuery(user_id);
   const displayUser = true;
@@ -18,10 +19,12 @@ const ProfContent = () => {
             <Post
               key={post.id}
               id={post.id}
+              user_id_num={user_id_num}
               title={post.title}
               content={post.content}
               created={post.created_at}
               user={post.user}
+              favorites={post.favorites}
               displayUser={displayUser}
             />
           );

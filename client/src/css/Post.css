@@ -43,6 +43,19 @@
   color: black;
 }
 
+.post_favorites_btn {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  font-size: 20px;
+}
+
+.post_favorites_btn:hover {
+  cursor: pointer;
+}
+
 .post_delete_btn {
   background-color: transparent;
   border: none;
