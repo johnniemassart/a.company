@@ -6,6 +6,9 @@ from django.shortcuts import get_object_or_404, HttpResponseRedirect
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser, FormParser
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import get_user
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 
@@ -59,10 +62,15 @@ class UserFollowingViewSet(viewsets.ModelViewSet):
     serializer_class = ProfileFollowingSerializer
 
 
+@csrf_exempt
+# @login_required
 def favorite_add(request, id):
     post = get_object_or_404(Post, id=id)
-    if post.favorites.filter(id=request.user.id).exists():
-        post.favorites.remove(request.user)
-    else:
-        post.favorites.add(request.user)
+    if request.method == "POST":
+        print(id)
+        print(post)
+        if post.favorites.filter(id=request.POST.get("favorites")).exists():
+            post.favorites.remove(request.POST.get("favorites"))
+        else:
+            post.favorites.add(request.POST.get("favorites"))
     return HttpResponseRedirect(request.META["HTTP_REFERER"])

@@ -5,6 +5,7 @@ import { useGetUserQuery } from "../../redux/userApi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as faBookmarkSolid } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark as faBookmarkRegular } from "@fortawesome/free-regular-svg-icons";
+import axios from "axios";
 
 const Post = ({
   id,
@@ -28,10 +29,23 @@ const Post = ({
       navigate(`/${username}/${user}/${id}`);
     }
   };
-  const handleFavorites = () => {};
   const [deletePost] = useDeletePostMutation();
   const handleDelete = () => {
     deletePost(id);
+  };
+  const handleFavorites = async (e) => {
+    await e.preventDefault();
+    // console.log(user_id_num);
+    let formData = new FormData();
+    formData.append("id", id);
+    formData.append("favorites", user_id_num);
+    const config = {
+      headers: { "Content-Type": "multipart/form-data" },
+    };
+    await axios
+      .post(`http://127.0.0.1:8000/auth/favorite/${id}/`, formData, config)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
   };
   return (
     <div className="post_outer_wrapper">
@@ -44,11 +58,7 @@ const Post = ({
       </div>
       <button className="post_favorites_btn" onClick={handleFavorites}>
         {favorites?.includes(user_id_num) ? (
-          <FontAwesomeIcon
-            icon={faBookmarkSolid}
-            className="solid"
-            style={{ color: "black" }}
-          />
+          <FontAwesomeIcon icon={faBookmarkSolid} className="solid" />
         ) : (
           <FontAwesomeIcon icon={faBookmarkRegular} className="regular" />
         )}

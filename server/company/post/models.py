@@ -1,5 +1,5 @@
 from django.db import models
-from auth_user.models import Profile
+from auth_user.models import User, Profile
 
 
 class Post(models.Model):
