@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as faBookmarkSolid } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark as faBookmarkRegular } from "@fortawesome/free-regular-svg-icons";
 import axios from "axios";
+import { usePostFavoriteMutation } from "../../redux/authApi";
 
 const Post = ({
   id,
@@ -16,6 +17,7 @@ const Post = ({
   user,
   favorites,
   displayUser,
+  refetch,
 }) => {
   const year_created_sliced = created.slice(0, 4);
   const navigate = useNavigate();
@@ -33,19 +35,25 @@ const Post = ({
   const handleDelete = () => {
     deletePost(id);
   };
-  const handleFavorites = async (e) => {
-    await e.preventDefault();
-    // console.log(user_id_num);
+  //   const handleFavorites = async (e) => {
+  //     let formData = new FormData();
+  //     formData.append("id", id);
+  //     formData.append("favorites", user_id_num);
+  //     const config = {
+  //       headers: { "Content-Type": "multipart/form-data" },
+  //     };
+  //     await axios
+  //       .post(`http://127.0.0.1:8000/auth/favorite/${id}/`, formData, config)
+  //       .then((res) => console.log(res.data))
+  //       .catch((err) => console.log(err));
+  //   };
+  const [postFavorite] = usePostFavoriteMutation();
+  const handleFavorite = async () => {
     let formData = new FormData();
     formData.append("id", id);
     formData.append("favorites", user_id_num);
-    const config = {
-      headers: { "Content-Type": "multipart/form-data" },
-    };
-    await axios
-      .post(`http://127.0.0.1:8000/auth/favorite/${id}/`, formData, config)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
+    await postFavorite({ id: id, favorites: user_id_num });
+    await refetch();
   };
   return (
     <div className="post_outer_wrapper">
@@ -56,7 +64,7 @@ const Post = ({
           <p className="post_user_info">{year_created_sliced}</p>
         </div>
       </div>
-      <button className="post_favorites_btn" onClick={handleFavorites}>
+      <button className="post_favorites_btn" onClick={handleFavorite}>
         {favorites?.includes(user_id_num) ? (
           <FontAwesomeIcon icon={faBookmarkSolid} className="solid" />
         ) : (

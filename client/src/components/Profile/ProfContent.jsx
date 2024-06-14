@@ -7,8 +7,11 @@ import Post from "../global/Post";
 const ProfContent = () => {
   const { user_id } = useSelector(selectAuth);
   const user_id_num = Number(user_id);
-  const { data: followingPostData, isSuccess: userFollowingPostSuccess } =
-    useGetProfileFollowingPostsQuery(user_id);
+  const {
+    data: followingPostData,
+    isSuccess: userFollowingPostSuccess,
+    refetch,
+  } = useGetProfileFollowingPostsQuery(user_id);
   const displayUser = true;
   return (
     <div className="prof_cont_wrapper">
@@ -26,6 +29,7 @@ const ProfContent = () => {
               user={post.user}
               favorites={post.favorites}
               displayUser={displayUser}
+              refetch={refetch}
             />
           );
         })

@@ -67,8 +67,8 @@ class UserFollowingViewSet(viewsets.ModelViewSet):
 def favorite_add(request, id):
     post = get_object_or_404(Post, id=id)
     if request.method == "POST":
-        print(id)
-        print(post)
+        # print(id)
+        # print(post)
         if post.favorites.filter(id=request.POST.get("favorites")).exists():
             post.favorites.remove(request.POST.get("favorites"))
         else:

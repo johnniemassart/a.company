@@ -7,8 +7,11 @@ import Post from "../global/Post";
 const AccountPosts = () => {
   const { user_id } = useSelector(selectAuth);
   const user_id_num = Number(user_id);
-  const { data: userPosts, isSuccess: userPostsSuccess } =
-    useGetProfilePostsQuery(user_id);
+  const {
+    data: userPosts,
+    isSuccess: userPostsSuccess,
+    refetch,
+  } = useGetProfilePostsQuery(user_id);
   const displayUser = false;
   return (
     <>
@@ -26,6 +29,7 @@ const AccountPosts = () => {
               user={post.user}
               favorites={post.favorites}
               displayUser={displayUser}
+              refetch={refetch}
             />
           );
         })

@@ -17,6 +17,19 @@ export const authApi = createApi({
       },
       invalidatesTags: ["AuthUser"],
     }),
+    postFavorite: builder.mutation({
+      query: ({ id, favorites }) => {
+        let formData = new FormData();
+        formData.append("id", id);
+        formData.append("favorites", favorites);
+        return {
+          url: `auth/favorite/${id}/`,
+          method: "post",
+          body: formData,
+        };
+      },
+      invalidatesTags: ["AuthUser"],
+    }),
     // registerUser: builder.mutation({
     //   query: (body) => {
     //     return {
@@ -30,4 +43,4 @@ export const authApi = createApi({
   }),
 });
 
-export const { useLoginUserMutation } = authApi;
+export const { useLoginUserMutation, usePostFavoriteMutation } = authApi;
