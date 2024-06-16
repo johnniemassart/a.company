@@ -1,0 +1,18 @@
+.user_wrapper {
+  border: 1px solid orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+  margin-bottom: 10px;
+}
+.user_img {
+  border: 1px solid green;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  /* display: inline-block; */
+}
+.user_username {
+  border: 1px solid purple;
+}
