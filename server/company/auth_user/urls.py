@@ -15,6 +15,7 @@ urlpatterns = [
     path("", include(router.urls)),
     path("profile_followed_by/", ProfileFollowedByList.as_view()),
     path("favorite/<int:id>/", favorite_add, name="favorite_add"),
+    path("follow/<int:id>/", follow_add, name="follow_add"),
     path("api/token/", MyTokenObtainView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]

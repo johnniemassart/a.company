@@ -74,3 +74,17 @@ def favorite_add(request, id):
         else:
             post.favorites.add(request.POST.get("favorites"))
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
+
+
+@csrf_exempt
+# @login_required
+def follow_add(request, id):
+    print(f"id -> {id}")
+    print(f"follows id - {request.POST.get("follows")}")
+    profile = get_object_or_404(Profile, id=id)
+    if request.method == "POST":
+        if profile.follows.filter(id=request.POST.get("follows")).exists():
+            profile.follows.remove(request.POST.get("follows"))
+        else:
+            profile.follows.add(request.POST.get("follows"))
+    return HttpResponseRedirect(request.META["HTTP_REFERER"])

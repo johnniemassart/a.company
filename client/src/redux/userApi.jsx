@@ -45,6 +45,19 @@ export const userApi = createApi({
       },
       invalidatesTags: ["AuthUser"],
     }),
+    postFollow: builder.mutation({
+      query: ({ id, follows }) => {
+        let formData = new FormData();
+        formData.append("id", id);
+        formData.append("follows", follows);
+        return {
+          url: `auth/follow/${id}/`,
+          method: "post",
+          body: formData,
+        };
+      },
+      invalidatesTags: ["AuthUser"],
+    }),
     updateAbout: builder.mutation({
       query: ({ user, ...rest }) => {
         return {
@@ -71,5 +84,6 @@ export const {
   useGetFollowingsQuery,
   useGetProfileFollowedByQuery,
   usePutUserMutation,
+  usePostFollowMutation,
   useUpdateAboutMutation,
 } = userApi;

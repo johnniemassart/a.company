@@ -35,18 +35,6 @@ const Post = ({
   const handleDelete = () => {
     deletePost(id);
   };
-  //   const handleFavorites = async (e) => {
-  //     let formData = new FormData();
-  //     formData.append("id", id);
-  //     formData.append("favorites", user_id_num);
-  //     const config = {
-  //       headers: { "Content-Type": "multipart/form-data" },
-  //     };
-  //     await axios
-  //       .post(`http://127.0.0.1:8000/auth/favorite/${id}/`, formData, config)
-  //       .then((res) => console.log(res.data))
-  //       .catch((err) => console.log(err));
-  //   };
   const [postFavorite] = usePostFavoriteMutation();
   const handleFavorite = async () => {
     let formData = new FormData();
