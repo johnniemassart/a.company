@@ -79,8 +79,8 @@ def favorite_add(request, id):
 @csrf_exempt
 # @login_required
 def follow_add(request, id):
-    print(f"id -> {id}")
-    print(f"follows id - {request.POST.get("follows")}")
+    # print(f"id -> {id}")
+    # print(f"follows id - {request.POST.get("follows")}")
     profile = get_object_or_404(Profile, id=id)
     if request.method == "POST":
         if profile.follows.filter(id=request.POST.get("follows")).exists():
