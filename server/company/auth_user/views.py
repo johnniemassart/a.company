@@ -88,3 +88,12 @@ def follow_add(request, id):
         else:
             profile.follows.add(request.POST.get("follows"))
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
+
+
+# def applied_users(request):
+#     pass
+
+
+class AppliedUsersViewset(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = AppliedUsersSerializer

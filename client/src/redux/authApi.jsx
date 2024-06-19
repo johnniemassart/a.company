@@ -17,6 +17,16 @@ export const authApi = createApi({
       },
       invalidatesTags: ["AuthUser"],
     }),
+    registerUser: builder.mutation({
+      query: (body) => {
+        return {
+          url: "auth/applied_users/",
+          method: "post",
+          body,
+        };
+      },
+      invalidatesTags: ["AuthUser"],
+    }),
     postFavorite: builder.mutation({
       query: ({ id, favorites }) => {
         let formData = new FormData();
@@ -30,17 +40,11 @@ export const authApi = createApi({
       },
       invalidatesTags: ["AuthUser"],
     }),
-    // registerUser: builder.mutation({
-    //   query: (body) => {
-    //     return {
-    //       url: "auth/api/token/",
-    //       method: "post",
-    //       body,
-    //     };
-    //   },
-    //   invalidatesTags: ["AuthUser"],
-    // }),
   }),
 });
 
-export const { useLoginUserMutation, usePostFavoriteMutation } = authApi;
+export const {
+  useLoginUserMutation,
+  useRegisterUserMutation,
+  usePostFavoriteMutation,
+} = authApi;

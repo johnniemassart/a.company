@@ -35,6 +35,32 @@ class UserSerializer(ModelSerializer):
         return super(UserSerializer, self).update(instance, validated_data)
 
 
+class AppliedUsersSerializer(ModelSerializer):
+    # src - https://stackoverflow.com/questions/55906891/django-drf-simple-jwt-authenticationdetail-no-active-account-found-with-the
+    class Meta:
+        model = User
+        fields = [
+            "id",
+            "first_name",
+            "last_name",
+            "username",
+            "email",
+            "password",
+            "is_active",
+        ]
+        read_only_fields = ["is_active"]
+        extra_kwargs = {"password": {"write_only": True}}
+
+    def create(self, validated_data):
+        password = validated_data.pop("password", None)
+        instance = self.Meta.model(**validated_data)
+        instance.is_active = False
+        if password is not None:
+            instance.set_password(password)
+        instance.save()
+        return instance
+
+
 class ProfileAllSerializer(ModelSerializer):
     following_count = serializers.SerializerMethodField()
 

@@ -20,7 +20,6 @@ const UsersList = () => {
   let follow_user_id = null;
   const [postFollow] = usePostFollowMutation();
   const handleFollow = async () => {
-    // console.log(follow_user_id);
     let formData = new FormData();
     formData.append("id", user_id);
     formData.append("follows", follow_user_id);

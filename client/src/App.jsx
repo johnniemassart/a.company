@@ -9,6 +9,7 @@ import CreatePost from "./pages/CreatePost";
 import FollowingAccount from "./pages/FollowingAccount";
 import PostPage from "./pages/PostPage";
 import UsersList from "./pages/UsersList";
+import SignUpConfirmation from "./pages/SignUpConfirmation";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/signupconfirmation" element={<SignUpConfirmation />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/:username" element={<Profile />} />
             <Route path="/:username/create" element={<CreatePost />} />
