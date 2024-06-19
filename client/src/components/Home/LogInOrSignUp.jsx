@@ -2,25 +2,24 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const LogInOrSignUp = () => {
-  const [currentDate, setCurrentDate] = useState(new Date());
-  const days = [
-    { dateVal: 0, dateDay: "sunday" },
-    { dateVal: 1, dateDay: "monday" },
-    { dateVal: 2, dateDay: "tuesday" },
-    { dateVal: 3, dateDay: "wednesday" },
-    { dateVal: 4, dateDay: "thursday" },
-    { dateVal: 5, dateDay: "friday" },
-    { dateVal: 6, dateDay: "saturday" },
-  ];
-  useEffect(() => {
-    const timeInterval = setInterval(() => {
-      setCurrentDate(new Date());
-    }, 1000);
-    return () => clearInterval(timeInterval);
-  }, []);
+  //   const [currentDate, setCurrentDate] = useState(new Date());
+  //   const days = [
+  //     { dateVal: 0, dateDay: "sunday" },
+  //     { dateVal: 1, dateDay: "monday" },
+  //     { dateVal: 2, dateDay: "tuesday" },
+  //     { dateVal: 3, dateDay: "wednesday" },
+  //     { dateVal: 4, dateDay: "thursday" },
+  //     { dateVal: 5, dateDay: "friday" },
+  //     { dateVal: 6, dateDay: "saturday" },
+  //   ];
+  //   useEffect(() => {
+  //     const timeInterval = setInterval(() => {
+  //       setCurrentDate(new Date());
+  //     }, 1000);
+  //     return () => clearInterval(timeInterval);
+  //   }, []);
   return (
     <div className="li_su_positioning">
-      <p className="home_msg">founded, @2024.</p>
       <div className="li_su_wrapper">
         <div className="li_su_content_wrapper">
           <p className="welcome">welcome to,</p>
@@ -40,14 +39,17 @@ const LogInOrSignUp = () => {
               />
             </svg>
           </p>
-          {days.map(
+          {/* {days.map(
             (day) =>
               currentDate.getDay() === day.dateVal && (
                 <p key={day.dateVal} className="welcome home_day">
                   on a {day.dateDay} in milwaukee.
                 </p>
               )
-          )}
+          )} */}
+          <p className="welcome home_day">
+            a platform for research scientists.
+          </p>
         </div>
         <div className="link_wrapper">
           <Link to="/login" className="link_btn">

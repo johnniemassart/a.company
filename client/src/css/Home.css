@@ -1,8 +1,20 @@
+.home_msg {
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+}
+
 .home_wrapper {
-  height: 100svh;
+  /* height: 100svh; */
   /* border: 1px solid green; */
   /* width: 100vw; */
   /* overflow: hidden; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .li_su_positioning {
@@ -12,14 +24,6 @@
   justify-content: center;
   align-items: center;
   position: relative;
-}
-
-.home_msg {
-  position: absolute;
-  top: 95%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 12px;
 }
 
 .li_su_wrapper {
