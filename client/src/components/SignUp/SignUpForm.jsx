@@ -48,15 +48,14 @@ const SignUp = () => {
   };
   useEffect(() => {
     if (isRegisterSuccess) {
-      //   dispatch(
-      //     setUser({
-      //       user_id: jwtDecode(registerData.access).user_id,
-      //       first_name: jwtDecode(registerData.access).first_name,
-      //       last_name: jwtDecode(registerData.access).last_name,
-      //       username: jwtDecode(registerData.access).username,
-      //       email: jwtDecode(registerData.access).email,
-      //     })
-      //   );
+      localStorage.setItem(
+        "application",
+        JSON.stringify({
+          first_name: firstName,
+          last_name: lastName,
+          username: username,
+        })
+      );
       setFirstName("");
       setLastName("");
       setUsername("");

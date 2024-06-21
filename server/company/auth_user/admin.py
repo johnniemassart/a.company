@@ -15,7 +15,7 @@ class UserProfileInline(admin.StackedInline):
 # Customer user model
 class UserAdminConfig(UserAdmin):
     search_fields = ("username", "first_name", "last_name", "email")
-    list_filter = ("is_staff", "is_superuser")
+    list_filter = ("is_staff", "is_superuser", "is_active")
     ordering = ("username",)
     list_display = ("username", "first_name", "last_name", "email")
     fieldsets = (
@@ -27,6 +27,7 @@ class UserAdminConfig(UserAdmin):
                 "fields": (
                     "is_staff",
                     "is_superuser",
+                    "is_active",
                 )
             },
         ),

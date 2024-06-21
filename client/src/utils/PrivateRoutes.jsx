@@ -6,13 +6,18 @@ import Profile from "../pages/Profile";
 
 const PrivateRoutes = () => {
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("user")) || "";
+  const application = JSON.parse(localStorage.getItem("application")) || "";
 
   useEffect(() => {
     dispatch(setUser(user));
   }, []);
 
-  return user ? <Outlet /> : <Navigate to="/login" />;
+  return user != "" || application != "" ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/login" />
+  );
 };
 
 export default PrivateRoutes;
